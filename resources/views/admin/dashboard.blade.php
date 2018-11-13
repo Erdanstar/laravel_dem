@@ -1,7 +1,6 @@
 @extends('admin.layouts.app_admin')
 
 @section('content')
-<<<<<<< HEAD
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -35,7 +34,5 @@
     <!-- /.content -->
   </div>
   <!-- /.content-wrapper -->
-=======
   <h1>Admin test</h1>
->>>>>>> c2c9a91b3a3317a47e06e331f87b67290526d32e
 @endsection

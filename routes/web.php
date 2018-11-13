@@ -14,10 +14,7 @@
 Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], function()
 {
   Route::get('/', 'DashboardController@dashboard')->name('admin.index');
-<<<<<<< HEAD
   Route::resource('/posts', 'PostsController');
-=======
->>>>>>> c2c9a91b3a3317a47e06e331f87b67290526d32e
 });
 
 Route::get('/', function () {
