@@ -14,7 +14,7 @@ const mix = require('laravel-mix');
 mix.js('resources/js/app.js', 'public/js')
    .sass('resources/sass/app.scss', 'public/css');
    mix.styles([
-   	'resources/assets/admin/bootstrap/css/bootstrap.min.css',
+    'resources/assets/admin/bootstrap/css/bootstrap.min.css',
    	'resources/assets/admin/font-awesome/4.5.0/css/font-awesome.min.css',
    	'resources/assets/admin/ionicons/2.0.1/css/ionicons.min.css',
    	'resources/assets/admin/plugins/iCheck/minimal/_all.css',
@@ -22,7 +22,7 @@ mix.js('resources/js/app.js', 'public/js')
    	'resources/assets/admin/plugins/select2/select2.min.css',
    	'resources/assets/admin/plugins/datatables/dataTables.bootstrap.css',
    	'resources/assets/admin/dist/css/AdminLTE.min.css',
-   	'resources/assets/admin/dist/css/skins/_all-skins.min.css'
+   	'resources/assets/admin/dist/css/skins/_all-skins.min.css',
    ], 'public/css/admin.css');
 
    mix.scripts([

@@ -28,6 +28,7 @@
         }
       </style>
     <!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/admin.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -436,5 +437,7 @@
   <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
+
+
 </body>
 </html>

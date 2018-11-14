@@ -25,32 +25,24 @@
             <!-- /.box-header -->
             <div class="box-body">
               <div class="form-group">
-                <a href="{{route('posts.create')}}" class="btn btn-success">Добавить</a>
+                <a href="{{route('orentation.create')}}" class="btn btn-success">Добавить</a>
               </div>
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
                   <th>ID</th>
-                  <th>Название</th>
-                  <th>Текст</th>
-                  <th>Картинка</th>
-                  <th>Просмотры</th>
+                  <th>Название Ориентации</th>
                 </tr>
                 </thead>
                 <tbody>
-                @foreach($posts as $post)
+                @foreach($orentations as $orentation)
                 <tr>
-                  <td>{{$post->id}}</td>
-                  <td>{{$post->title}}</td>
-                  <td>{{$post->content}}</td>
+                  <td>{{$orentation->id}}</td>
+                  <td>{{$orentation->orentation}}</td>
                   <td>
-                    <img src="{{$post->getImage()}}" alt="" width="100">
-                  </td>
-                  <td>{{$post->views}}</td>
-                  <td>
-                  <a href="{{route('posts.edit', $post->id)}}" class="fa fa-pencil"></a>
+                  <a href="{{route('orentation.edit', $orentation->id)}}" class="fa fa-pencil"></a>
 
-                  {{Form::open(['route'=>['posts.destroy', $post->id], 'method'=>'delete'])}}
+                  {{Form::open(['route'=>['orentation.destroy', $orentation->id], 'method'=>'delete'])}}
 	                  <button onclick="return confirm('are you sure?')" type="submit" class="delete">
 	                   <i class="fa fa-remove"></i>
 	                  </button>

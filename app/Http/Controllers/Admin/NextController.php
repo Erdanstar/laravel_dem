@@ -3,10 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Post;
 use App\Http\Controllers\Controller;
+use App\TestNext;
+use App\Orentation;
 
-class PostsController extends Controller
+class NextController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $posts = Post::all();
-      return view('admin.posts.index', ['posts'=>$posts]);
+      $nexts = TestNext::all();
+      return view('admin.tests.next.index', compact('nexts'));
     }
 
     /**
@@ -26,7 +27,10 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        $orentations = Orentation::pluck('orentation', 'id')->all();
+        return view('admin.tests.next.create', compact(
+            'orentations'
+        ));
     }
 
     /**
@@ -38,13 +42,11 @@ class PostsController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-          'title' =>'required',
-          'content'   =>  'required',
+          'orentation_id' =>'required'
       ]);
 
-      $post = Post::add($request->all());
-      $post->uploadImage($request->file('image'));
-      return redirect()->route('posts.index');
+      $next = TestNext::add($request->all());
+      return redirect()->route('next.index');
     }
 
     /**
@@ -89,7 +91,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-      Post::find($id)->remove();
-      return redirect()->route('posts.index');
+        //
     }
 }

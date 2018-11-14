@@ -3,10 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Post;
 use App\Http\Controllers\Controller;
+use App\Orentation;
 
-class PostsController extends Controller
+class OrentationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $posts = Post::all();
-      return view('admin.posts.index', ['posts'=>$posts]);
+      $orentations = Orentation::all();
+      return view('admin.orentation.index', compact('orentations'));
     }
 
     /**
@@ -26,7 +26,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+        return view('admin.orentation.create');
     }
 
     /**
@@ -38,13 +38,11 @@ class PostsController extends Controller
     public function store(Request $request)
     {
       $this->validate($request, [
-          'title' =>'required',
-          'content'   =>  'required',
+          'orentation' =>'required'
       ]);
 
-      $post = Post::add($request->all());
-      $post->uploadImage($request->file('image'));
-      return redirect()->route('posts.index');
+      $orentation = Orentation::add($request->all());
+      return redirect()->route('orentation.index');
     }
 
     /**
@@ -89,7 +87,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-      Post::find($id)->remove();
-      return redirect()->route('posts.index');
+        //
     }
 }

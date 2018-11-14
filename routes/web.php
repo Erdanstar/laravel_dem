@@ -15,6 +15,10 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], fu
 {
   Route::get('/', 'DashboardController@dashboard')->name('admin.index');
   Route::resource('/posts', 'PostsController');
+  Route::resource('/tests', 'TestController');
+  Route::resource('/answers', 'AnswerController');
+  Route::resource('/orentation', 'OrentationController');
+  Route::resource('/next', 'NextController');
 });
 
 Route::get('/', function () {

@@ -29,7 +29,7 @@ class Post extends Model
 
     public static function add($fields)
     {
-    	$post = new static;
+      $post = new static;
     	$post->fill($fields);
     	$post->save();
 
@@ -61,8 +61,8 @@ class Post extends Model
     	if($image == null) { return; }
 
     	$this->removeImage();
-    	$filename = str_random(10) . '.' . $image->extension();
-    	$image->storeAs('uploads', $filename);
+    	$filename = str_random(10) . '.' . $image->getClientOriginalExtension();
+    	$image->move(public_path('uploads'), $filename);
     	$this->image = $filename;
     	$this->save();
     }

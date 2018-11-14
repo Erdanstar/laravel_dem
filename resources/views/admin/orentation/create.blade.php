@@ -14,8 +14,7 @@
     <!-- Main content -->
     <section class="content">
   {{Form::open([
-    'route'	=> 'posts.store',
-    'files'	=>	true
+    'route'	=> 'orentation.store'
   ])}}
       <!-- Default box -->
       <div class="box">
@@ -27,26 +26,14 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="exampleInputEmail1">Название</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Название" name="title" value="{{old('title')}}">
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Название" name="orentation" value="{{old('orentation')}}">
             </div>
-            <div class="form-group">
-              <label for="exampleInputFile">Лицевая картинка</label>
-              <input type="file" id="exampleInputFile" name="image">
-
-              <p class="help-block">Какое-нибудь уведомление о форматах..</p>
-            </div>
-          </div>
-        </div>
-          <div class="col-md-12">
-            <div class="form-group">
-              <label for="exampleInputEmail1">Полный текст</label>
-              <textarea name="content" id="" cols="30" rows="10" class="form-control" ></textarea>
           </div>
         </div>
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <button class="btn btn-default">Назад</button>
+          <a href="{{route('orentation.index')}}" class="btn btn-default">Назад</a>
           <button class="btn btn-success pull-right">Добавить</button>
         </div>
         <!-- /.box-footer-->

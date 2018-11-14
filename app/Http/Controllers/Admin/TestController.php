@@ -3,10 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
-use App\Post;
 use App\Http\Controllers\Controller;
 
-class PostsController extends Controller
+class TestController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +14,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-      $posts = Post::all();
-      return view('admin.posts.index', ['posts'=>$posts]);
+        return view('admin.tests.index');
     }
 
     /**
@@ -26,7 +24,7 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('admin.posts.create');
+
     }
 
     /**
@@ -37,14 +35,7 @@ class PostsController extends Controller
      */
     public function store(Request $request)
     {
-      $this->validate($request, [
-          'title' =>'required',
-          'content'   =>  'required',
-      ]);
-
-      $post = Post::add($request->all());
-      $post->uploadImage($request->file('image'));
-      return redirect()->route('posts.index');
+        //
     }
 
     /**
@@ -66,7 +57,7 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -89,7 +80,6 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-      Post::find($id)->remove();
-      return redirect()->route('posts.index');
+        //
     }
 }
