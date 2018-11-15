@@ -14,7 +14,7 @@ class UserSeed extends Seeder
                 'name'           => 'Admin',
                 'email'          => 'admin@admin.com',
                 'password'       => '$2y$10$MfBY73EZeMzBQVsQYGTAL.X70La6z43QwIllG2RgNK30E.fUk75CO',
-                'role_id'        => 1,
+                'is_admin'        => 1,
                 'remember_token' => '',
             ],
         ]);

@@ -43,7 +43,7 @@ class AnswerController extends Controller
     ]);
 
     $answer = TestAnswer::add($request->all());
-    return redirect()->route('posts.index');
+    return redirect()->route('answers.index');
   }
 
   /**
@@ -65,7 +65,10 @@ class AnswerController extends Controller
    */
   public function edit($id)
   {
-
+    $answer = TestAnswer::find($id);
+    return view('admin.tests.answers.edit', compact(
+        'answer'
+    ));
   }
 
   /**
@@ -77,7 +80,15 @@ class AnswerController extends Controller
    */
   public function update(Request $request, $id)
   {
-      //
+    $this->validate($request, [
+        'answer_number' =>'required',
+        'answer'   =>  'required',
+    ]);
+
+    $answer = TestAnswer::find($id);
+    $answer->edit($request->all());
+
+    return redirect()->route('answers.index');
   }
 
   /**
@@ -88,6 +99,7 @@ class AnswerController extends Controller
    */
   public function destroy($id)
   {
-      //
+    TestAnswer::find($id)->remove();
+    return redirect()->route('answers.index');
   }
 }

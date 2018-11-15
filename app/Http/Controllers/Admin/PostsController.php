@@ -66,7 +66,11 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        //
+      $post = Post::find($id);
+
+      return view('admin.posts.edit', compact(
+          'post'
+      ));
     }
 
     /**
@@ -78,7 +82,16 @@ class PostsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+          'title' =>'required',
+          'content'   =>  'required',
+      ]);
+
+      $post = Post::find($id);
+      $post->edit($request->all());
+      $post->uploadImage($request->file('image'));
+
+      return redirect()->route('posts.index');
     }
 
     /**

@@ -21,9 +21,9 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], fu
   Route::resource('/next', 'NextController');
 });
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'HomeController@index');
+Route::get('/tests/{answer_number}', 'HomeController@tests');
+
 
 Auth::routes();
 

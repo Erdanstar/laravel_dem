@@ -5,7 +5,7 @@
       <i class="fa fa-dashboard"></i> <span>Админ-панель</span>
     </a>
   </li>
-  <li><a href="#"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
+  <li><a href="{{route('posts.index')}}"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
   <li class="treeview">
           <a href="{{ route('tests.index')}}">
             <i class="fas fa-tasks"></i>

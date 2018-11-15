@@ -14,7 +14,8 @@
     <!-- Main content -->
     <section class="content">
   {{Form::open([
-    'route'	=> 'next.store'
+    'route'	=>	['next.update', $next->id],
+    'method'	=>	'put'
   ])}}
       <!-- Default box -->
       <div class="box">
@@ -77,7 +78,7 @@
       </div>
         <!-- /.box-body -->
         <div class="box-footer">
-          <a href="{{route('orentation.index')}}" class="btn btn-default">Назад</a>
+          <a href="{{route('next.index')}}" class="btn btn-default">Назад</a>
           <button class="btn btn-success pull-right">Добавить</button>
         </div>
         <!-- /.box-footer-->

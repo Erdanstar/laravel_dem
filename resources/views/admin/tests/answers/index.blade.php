@@ -32,7 +32,8 @@
                 <tr>
                   <th>ID</th>
                   <th>Ответы</th>
-                  <th>Номер</th>
+                  <th>Номер вопроса</th>
+                  <th>Номер ответа</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -40,11 +41,12 @@
                 <tr>
                   <td>{{$answer->id}}</td>
                   <td>{{$answer->answer}}</td>
+                  <td>{{$answer->question_number}}</td>
                   <td>{{$answer->answer_number}}</td>
                   <td>
-                  <a href="{{route('posts.edit', $answer->id)}}" class="fa fa-pencil"></a>
+                  <a href="{{route('answers.edit', $answer->id)}}" class="fa fa-pencil"></a>
 
-                  {{Form::open(['route'=>['posts.destroy', $answer->id], 'method'=>'delete'])}}
+                  {{Form::open(['route'=>['answers.destroy', $answer->id], 'method'=>'delete'])}}
                     <button onclick="return confirm('are you sure?')" type="submit" class="delete">
                      <i class="fa fa-remove"></i>
                     </button>

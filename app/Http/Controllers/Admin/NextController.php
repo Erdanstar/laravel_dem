@@ -68,7 +68,12 @@ class NextController extends Controller
      */
     public function edit($id)
     {
-        //
+      $next = TestNext::find($id);
+      $orentations = Orentation::pluck('orentation', 'id')->all();
+      return view('admin.tests.next.edit', compact(
+          'orentations',
+          'next'
+      ));
     }
 
     /**
@@ -80,7 +85,14 @@ class NextController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+          'orentation_id' =>'required'
+      ]);
+
+      $next = TestNext::find($id);
+      $next->edit($request->all());
+
+      return redirect()->route('next.index');
     }
 
     /**
@@ -91,6 +103,7 @@ class NextController extends Controller
      */
     public function destroy($id)
     {
-        //
+      TestNext::find($id)->remove();
+      return redirect()->route('next.index');
     }
 }

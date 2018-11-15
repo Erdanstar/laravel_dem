@@ -46,18 +46,16 @@ class TestNext extends Model
     return $next;
   }
 
-  public function setOrentation($id)
+  public function edit($fields)
   {
-    if($id == null) {return;}
-    $this->orentation_id = $id;
+    $this->fill($fields);
     $this->save();
   }
 
-  public function getOrentationTitle()
+
+  public function remove()
   {
-      return ($this->orentation != null)
-              ?   $this->orentation->title
-              :   'Нет категории';
+    $this->delete();
   }
 
 }

@@ -25,6 +25,10 @@
             <div class="box-body">
                 <div class="col-md-6">
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Номер вопроса</label>
+                        <input type="number" class="form-control" id="exampleInputEmail1" min="1" max="20" placeholder="Номер вопроса" name="question_number" value="{{old('number')}}">
+                    </div>
+                    <div class="form-group">
                         <label for="exampleInputEmail1">Номер ответа</label>
                         <input type="number" class="form-control" id="exampleInputEmail1" min="1" max="20" placeholder="Номер ответа" name="answer_number" value="{{old('number')}}">
                     </div>
