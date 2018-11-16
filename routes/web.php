@@ -15,14 +15,14 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], fu
 {
   Route::get('/', 'DashboardController@dashboard')->name('admin.index');
   Route::resource('/posts', 'PostsController');
-  Route::resource('/tests', 'TestController');
-  Route::resource('/answers', 'AnswerController');
-  Route::resource('/orentation', 'OrentationController');
-  Route::resource('/next', 'NextController');
+  Route::resource('/quiz', 'QuizController');
+  Route::resource('/status', 'StatusController');
+  Route::resource('/questions', 'QuizQuestionController');
+  Route::resource('/options', 'QuizOptionsController');
+  Route::resource('/corrects', 'QuizCorrectOptionController');
 });
 
 Route::get('/', 'HomeController@index');
-Route::get('/tests/{answer_number}', 'HomeController@tests');
 
 
 Auth::routes();

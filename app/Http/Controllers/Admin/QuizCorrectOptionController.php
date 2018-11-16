@@ -4,8 +4,12 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Quiz;
+use App\Orentation;
+use App\QuizQuestion;
+use App\QuizCorrectOption;
 
-class OrentationController extends Controller
+class QuizCorrectOptionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +18,10 @@ class OrentationController extends Controller
      */
     public function index()
     {
-        //
+      $corrects = QuizCorrectOption::all();
+      return view('admin.quiz.correctOptions.index', compact(
+        'corrects'
+      ));
     }
 
     /**
@@ -24,7 +31,12 @@ class OrentationController extends Controller
      */
     public function create()
     {
-        //
+      $relations = [
+          'quizzes' => Quiz::get()->pluck('title', 'id')->prepend('Please select', ''),
+          'questions' => QuizQuestion::get()->pluck('question_text', 'id')->prepend('Please select', ''),
+          'orentation' => Orentation::get()->pluck('title', 'id')->prepend('Please select', ''),
+      ];
+      return view('admin.quiz.questions.create', $relations);
     }
 
     /**

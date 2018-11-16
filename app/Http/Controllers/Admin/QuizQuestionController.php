@@ -4,8 +4,11 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\QuizQuestionOption;
+use App\QuizQuestion;
+use App\Quiz;
 
-class OrentationController extends Controller
+class QuizQuestionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,10 @@ class OrentationController extends Controller
      */
     public function index()
     {
-        //
+      $questions = QuizQuestion::all();
+      return view('admin.quiz.questions.index', compact(
+        'questions'
+      ));
     }
 
     /**
@@ -22,9 +28,12 @@ class OrentationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+      $relations = [
+          'quizzes' => Quiz::get()->pluck('title', 'id')->prepend('Please select', ''),
+      ];
+      return view('admin.quiz.questions.create', $relations);
     }
 
     /**
@@ -35,7 +44,19 @@ class OrentationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $question = QuizQuestion::add($request->all());
+
+      foreach ($request->input() as $key => $value) {
+            if(strpos($key, 'option_text') !== false && $value != '') {
+                QuizQuestionOption::add([
+                    'question_id' => $question->id,
+                    'option_text'      => $value
+                ]);
+            }
+        }
+
+        return redirect()->route('questions.index');
     }
 
     /**
@@ -80,6 +101,7 @@ class OrentationController extends Controller
      */
     public function destroy($id)
     {
-        //
+      QuizQuestion::find($id)->remove();
+      return redirect()->route('questions.index');
     }
 }

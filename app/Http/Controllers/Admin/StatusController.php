@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Quiz;
+use App\Status;
 
-class OrentationController extends Controller
+class StatusController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,8 @@ class OrentationController extends Controller
      */
     public function index()
     {
-        //
+      $statuses = Status::all();
+      return view('admin.status.index', ['statuses'=>$statuses]);
     }
 
     /**
@@ -24,7 +27,8 @@ class OrentationController extends Controller
      */
     public function create()
     {
-        //
+      $quizzes = Quiz::pluck('title', 'id')->all();
+      return view('admin.status.create', compact('quizzes'));
     }
 
     /**
@@ -35,7 +39,14 @@ class OrentationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+          'title' =>'required',
+          'quiz_id' => 'nullable'
+      ]);
+
+      $statuses = Status::add($request->all());
+      $statuses->setQuizID($request->get('quiz_id'));
+      return redirect()->route('status.index');
     }
 
     /**
@@ -57,7 +68,12 @@ class OrentationController extends Controller
      */
     public function edit($id)
     {
-        //
+      $status = Status::find($id);
+      $quizzes = Quiz::pluck('title', 'id')->all();
+      return view('admin.status.edit', compact(
+          'status',
+          'quizzes'
+      ));
     }
 
     /**
@@ -69,7 +85,15 @@ class OrentationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+          'title' =>'required',
+          'quiz_id'   =>  'required',
+      ]);
+
+      $post = Status::find($id);
+      $post->edit($request->all());
+
+      return redirect()->route('status.index');
     }
 
     /**
@@ -80,6 +104,7 @@ class OrentationController extends Controller
      */
     public function destroy($id)
     {
-        //
+      Status::find($id)->remove();
+      return redirect()->route('status.index');
     }
 }

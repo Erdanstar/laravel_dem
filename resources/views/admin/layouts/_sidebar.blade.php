@@ -7,7 +7,7 @@
   </li>
   <li><a href="{{route('posts.index')}}"><i class="fa fa-sticky-note-o"></i> <span>Посты</span></a></li>
   <li class="treeview">
-          <a href="{{ route('tests.index')}}">
+          <a href="#">
             <i class="fas fa-tasks"></i>
             <span>Тест профориентация</span>
             <span class="pull-right-container">
@@ -15,19 +15,16 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="{{route('tests.index')}}"><i class="fas fa-chart-line"></i> Информация</a></li>
-            <li><a href="{{route('answers.index')}}"><i class="fas fa-exclamation-circle"></i> Ответы</a></li>
-            <li><a href="{{route('orentation.index')}}"><i class="fas fa-question-circle"></i> Ориентация</a></li>
-            <li><a href="../charts/flot.html"><i class="fas fa-user-circle"></i> Результаты пользователей</a></li>
-            <li><a href="{{route('next.index')}}"><i class="fas fa-cog"></i> Метод для теста</a></li>
+            <li><a href="{{route('quiz.index')}}"><i class="fas fa-chart-line"></i> Тесты</a></li>
+            <li><a href="{{route('questions.index')}}"><i class="fas fa-chart-line"></i> Вопросы</a></li>
+            <li><a href="{{route('options.index')}}"><i class="fas fa-chart-line"></i> Ответы</a></li>
+            <li><a href="{{route('corrects.index')}}"><i class="fas fa-chart-line"></i> Метод</a></li>
+            <li><a href="#"><i class="fas fa-user-circle"></i> Результаты пользователей</a></li>
           </ul>
         </li>
   <li>
-    <a href="#">
-      <i class="fas fa-comments"></i> <span>Комментарии</span>
-      <span class="pull-right-container">
-        <small class="label pull-right bg-green">5</small>
-      </span>
+    <a href="{{route('status.index')}}">
+      <i class="fas fa-user-graduate"></i> <span>Статус для пользователей</span>
     </a>
   </li>
   <li><a href="#"><i class="fas fa-users"></i> <span>Пользователи</span></a></li>

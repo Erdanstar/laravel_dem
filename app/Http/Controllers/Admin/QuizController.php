@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Status;
+use App\Quiz;
 
-class OrentationController extends Controller
+class QuizController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,8 @@ class OrentationController extends Controller
      */
     public function index()
     {
-        //
+      $quizzes = Quiz::all();
+      return view('admin.quiz.index', ['quizzes'=>$quizzes]);
     }
 
     /**
@@ -24,7 +27,7 @@ class OrentationController extends Controller
      */
     public function create()
     {
-        //
+      return view('admin.quiz.create', compact('statuses'));
     }
 
     /**
@@ -35,7 +38,12 @@ class OrentationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $this->validate($request, [
+          'title' =>'required'
+      ]);
+
+      $post = Quiz::add($request->all());
+      return redirect()->route('quiz.index');
     }
 
     /**
@@ -57,7 +65,10 @@ class OrentationController extends Controller
      */
     public function edit($id)
     {
-        //
+      $quiz = Quiz::find($id);
+      return view('admin.quiz.edit', compact(
+          'quiz'
+      ));
     }
 
     /**
@@ -69,7 +80,15 @@ class OrentationController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+      $this->validate($request, [
+          'title' =>'required',
+          'quiz_id'   =>  'required',
+      ]);
+
+      $post = Quiz::find($id);
+      $post->edit($request->all());
+
+      return redirect()->route('quiz.index');
     }
 
     /**
