@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\QuizQuestion;
 use App\Status;
 use App\Quiz;
 
@@ -17,7 +18,7 @@ class QuizController extends Controller
     public function index()
     {
       $quizzes = Quiz::all();
-      return view('admin.quiz.index', ['quizzes'=>$quizzes]);
+      return view('admin.quiz.index', compact('quizzes'));
     }
 
     /**

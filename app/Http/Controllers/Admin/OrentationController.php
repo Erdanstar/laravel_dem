@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Quiz;
+use App\Orentation;
 
 class OrentationController extends Controller
 {
@@ -14,7 +16,8 @@ class OrentationController extends Controller
      */
     public function index()
     {
-        //
+      $orentations = Orentation::all();
+      return view('admin.quiz.orentations.index', ['orentations'=>$orentations]);
     }
 
     /**
@@ -24,7 +27,10 @@ class OrentationController extends Controller
      */
     public function create()
     {
-        //
+      $relations = [
+          'quizzes' => Quiz::get()->pluck('title', 'id')->prepend('Please select', ''),
+      ];
+      return view('admin.quiz.orentations.create', $relations);
     }
 
     /**
@@ -35,7 +41,8 @@ class OrentationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $orentation = Orentation::add($request->all());
+        return redirect()->route('orentations.index');
     }
 
     /**

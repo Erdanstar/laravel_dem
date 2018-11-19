@@ -4,7 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Status;
-use App\Question;
+use App\Orentation;
+use App\QuizQuestion;
+use App\QuizCorrectOption;
 use Cviebrock\EloquentSluggable\Sluggable;
 
 class Quiz extends Model
@@ -14,12 +16,21 @@ class Quiz extends Model
 
   public function questions()
   {
-    return $this->hasMany(Question::class);
+    return $this->hasMany(QuizQuestion::class);
   }
 
   public function statuses()
   {
     return $this->hasMany(Status::class);
+  }
+
+  public function orentations()
+  {
+    return $this->hasMany(Orentation::class);
+  }
+  public function correct()
+  {
+    return $this->hasMany(QuizCorrectOption::class);
   }
 
   public function sluggable()

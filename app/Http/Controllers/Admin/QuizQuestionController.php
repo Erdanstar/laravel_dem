@@ -104,4 +104,9 @@ class QuizQuestionController extends Controller
       QuizQuestion::find($id)->remove();
       return redirect()->route('questions.index');
     }
+
+    public function getOptions($id) {
+        $states = QuizQuestionOption::where("question_id",$id)->pluck("option_text","id");
+        return json_encode($states);
+    }
 }

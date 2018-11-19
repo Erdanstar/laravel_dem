@@ -18,6 +18,7 @@ class CreateSentencesTable extends Migration
             $table->text('sentence');
             $table->string('name');
             $table->string('email');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

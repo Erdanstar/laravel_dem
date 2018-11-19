@@ -44,7 +44,7 @@
                   <td>{{$correct->quiz->title}}</td>
                   <td>{{$correct->question->question_text}}</td>
                   <td>{{$correct->orentation->title}}</td>
-                  <td>{{$correct->correct}}</td>
+                  <td>{{$correct->getOption($correct->correct)[0]}}</td>
                   <td>
                   <a href="{{route('corrects.edit', $correct->id)}}" class="fa fa-pencil"></a>
 

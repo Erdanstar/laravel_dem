@@ -18,6 +18,7 @@ class CreateOthersTable extends Migration
             $table->text('other');
             $table->string('name');
             $table->string('email');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->timestamps();
         });
     }

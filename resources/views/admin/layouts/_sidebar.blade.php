@@ -19,6 +19,7 @@
             <li><a href="{{route('questions.index')}}"><i class="fas fa-chart-line"></i> Вопросы</a></li>
             <li><a href="{{route('options.index')}}"><i class="fas fa-chart-line"></i> Ответы</a></li>
             <li><a href="{{route('corrects.index')}}"><i class="fas fa-chart-line"></i> Метод</a></li>
+            <li><a href="{{route('orentations.index')}}"><i class="fas fa-chart-line"></i> Orentation</a></li>
             <li><a href="#"><i class="fas fa-user-circle"></i> Результаты пользователей</a></li>
           </ul>
         </li>

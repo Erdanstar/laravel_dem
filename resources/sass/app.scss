@@ -1,15 +1,56 @@
 
 // Fonts
-@import url('https://fonts.googleapis.com/css?family=Nunito');
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 // Variables
 @import 'variables';
+@import "nav";
+@import "footer";
+@import "pages/home";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Owl.Carousel
 
-.navbar-laravel {
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
+@import '~owl.carousel/dist/assets/owl.carousel.min.css';
+@import '~owl.carousel/dist/assets/owl.theme.default.css';
+
+body{
+  margin: 0;
+  padding: 0;
+  background-color: $body-bg;
+  font-family: $default-family;
+}
+.form-control{
+  color: #e1e1e1;
+  font-family: $default-family;
+  font-size: 20px;
+  &:focus{
+    box-shadow: 0 0 0 2px #56cbc7;
+    color: #8e8c8c;
+  }
+}
+input.form-control{
+  height: 52px;
+}
+.btn{
+  padding: 14px 30px;
+  font-size: 18px;
+  color: $white;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: $default-family;
+  background-color: #ed5f5e;
+}
+.btn-outline{
+  padding: 14px 30px;
+  font-size: 18px;
+  color: #ed5f5e;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: $default-family;
+  background-color: transparent;
+  border: 3px solid #ed5f5e;
+  border-radius: 5px;
 }

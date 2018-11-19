@@ -14,7 +14,7 @@
     <!-- Main content -->
     <section class="content">
         {{Form::open([
-    'route'	=> 'options.store'
+    'route'	=> 'corrects.store'
   ])}}
         <!-- Default box -->
         <div class="box">
@@ -33,14 +33,6 @@
                     }}
                     </div>
                     <div class="form-group">
-                        <label>Выберите вопрос</label>
-                        {{Form::select('question_id',
-                      $questions,
-                      null,
-                      ['class' => 'form-control select2'])
-                    }}
-                    </div>
-                    <div class="form-group">
                         <label>Выберите Ориентацию</label>
                         {{Form::select('orentation_id',
                       $orentations,
@@ -49,8 +41,18 @@
                     }}
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Правильный ответ</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Ответ" name="correct" value="{{old('option_text')}}">
+                        <label>Выберите вопрос</label>
+                        {{Form::select('question_id',
+                      $questions,
+                      null,
+                      ['class' => 'form-control select2'])
+                    }}
+                    </div>
+                    <div class="form-group">
+                      <label>Выберите правильный ответ</label>
+                      <select name="correct" class="form-control select2">
+                        <option>Please select</option>
+                      </select>
                     </div>
                 </div>
             </div>

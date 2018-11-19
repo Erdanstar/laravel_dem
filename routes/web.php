@@ -19,10 +19,15 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], fu
   Route::resource('/status', 'StatusController');
   Route::resource('/questions', 'QuizQuestionController');
   Route::resource('/options', 'QuizOptionsController');
+  Route::get('/questions/get/{id}', 'QuizQuestionController@getOptions');
   Route::resource('/corrects', 'QuizCorrectOptionController');
+  Route::resource('/orentations', 'OrentationController');
 });
 
 Route::get('/', 'HomeController@index');
+Route::get('/quiz', 'HomeController@test')->name('quiz');
+Route::get('/quiz/{slug}/{question_id}', 'HomeController@showTest');
+Route::post('/uquestions', 'HomeController@storeQuestions');
 
 
 Auth::routes();

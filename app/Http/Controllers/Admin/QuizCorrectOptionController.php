@@ -34,9 +34,9 @@ class QuizCorrectOptionController extends Controller
       $relations = [
           'quizzes' => Quiz::get()->pluck('title', 'id')->prepend('Please select', ''),
           'questions' => QuizQuestion::get()->pluck('question_text', 'id')->prepend('Please select', ''),
-          'orentation' => Orentation::get()->pluck('title', 'id')->prepend('Please select', ''),
+          'orentations' => Orentation::get()->pluck('title', 'id')->prepend('Please select', ''),
       ];
-      return view('admin.quiz.questions.create', $relations);
+      return view('admin.quiz.correctOptions.create', $relations);
     }
 
     /**
@@ -47,7 +47,8 @@ class QuizCorrectOptionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $question = QuizCorrectOption::add($request->all());
+        return redirect()->route('corrects.index');
     }
 
     /**

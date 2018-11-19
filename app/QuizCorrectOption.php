@@ -9,7 +9,7 @@ use App\QuizQuestion;
 
 class QuizCorrectOption extends Model
 {
-    protected $fillable = ['correct', 'quiz_id', 'option_id', 'orentation_id'];
+    protected $fillable = ['correct', 'quiz_id', 'question_id', 'orentation_id'];
 
     public function setQuizID($id)
     {
@@ -28,15 +28,22 @@ class QuizCorrectOption extends Model
 
     public function quiz()
     {
-      return $this->hasOne(Quiz::class);
+      return $this->belongsTo(Quiz::class);
     }
     public function question()
     {
-      return $this->hasOne(QuizQuestion::class);
+      return $this->belongsTo(QuizQuestion::class);
     }
     public function orentation()
     {
-      return $this->hasOne(Orentation::class);
+      return $this->belongsTo(Orentation::class);
+    }
+
+    public function getOption($id)
+    {
+      $option = QuizQuestionOption::where("id",$id)->pluck("option_text");
+
+      return $option;
     }
 
     public static function add($fields)
