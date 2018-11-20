@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use App\Profession;
 
 class Orentation extends Model
 {
@@ -11,6 +12,11 @@ class Orentation extends Model
   public function quiz()
   {
     return $this->belongsTo(Quiz::class);
+  }
+
+  public function professions()
+  {
+    $this->hasMany(Profession::class);
   }
 
   public function correct()

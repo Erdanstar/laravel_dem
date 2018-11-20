@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="#"><img src="img/user-icon.png" alt="User" /></a></li>
+                    <li><a href="{{route('login')}}"><img src="img/user-icon.png" alt="User" /></a></li>
                 </ul>
             </div>
             <div class="col-md-1">

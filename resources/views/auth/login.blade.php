@@ -66,6 +66,21 @@
                 </div>
             </div>
         </div>
+        <div class="col-md-4">
+          <form action="">
+              <div class="form-group">
+                  <input type="email" class="form-control" placeholder="e-mail">
+                  <input type="email" class="form-control" placeholder="пароль">
+                  <div class="buttons">
+                      <button type="submit" class="btn btn-primary">Кіру</button>
+                      <button type="submit" class="btn btn-outline">Тіркелу</button>
+                  </div>
+                  <small id="emailHelp" class="form-text text-muted">
+                      <a href="#" class="remember-password">пароль?</a>
+                  </small>
+              </div>
+          </form>
+        </div>
     </div>
 </div>
 @endsection

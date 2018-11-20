@@ -1,46 +1,45 @@
 .slider {
     background-color: $white;
     margin-bottom: 14px;
+}
+.owl-carousel {
+    position: relative;
 
-    .owl-carousel {
-        position: relative;
+    .owl-prev {
+        position: absolute;
+        top: 50%;
+        left: 14px;
+        color: $text-dark;
 
-        .owl-prev {
-            position: absolute;
-            top: 50%;
-            left: 14px;
-            color: $text-dark;
-
-            span {
-                font-size: 30px;
-            }
-
-            &:hover {
-                background: transparent !important;
-                color: $text-dark !important;
-            }
+        span {
+            font-size: 30px;
         }
 
-        .owl-next {
-            position: absolute;
-            top: 50%;
-            right: 14px;
+        &:hover {
+            background: transparent !important;
+            color: $text-dark !important;
+        }
+    }
 
-            span {
-                font-size: 30px;
-            }
+    .owl-next {
+        position: absolute;
+        top: 50%;
+        right: 14px;
 
-            &:hover {
-                background: transparent !important;
-                color: $text-dark !important;
-            }
+        span {
+            font-size: 30px;
         }
 
-        .owl-dots {
-            position: absolute;
-            bottom: 14px;
-            left: 50%;
+        &:hover {
+            background: transparent !important;
+            color: $text-dark !important;
         }
+    }
+
+    .owl-dots {
+        position: absolute;
+        bottom: 14px;
+        left: 50%;
     }
 }
 
@@ -70,7 +69,7 @@
         bottom: 0;
         right: 0;
         left: 0;
-        background-color: #000;
+        background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
         opacity: .72;
       }
       .tab-body, .container{
@@ -83,16 +82,16 @@
         .container{
           display: flex;
           flex-direction: column;
-          justify-content: center;
+          justify-content: flex-end;
           align-items: flex-start;
           color: $white;
-          padding: 0 40px;
+          padding: 40px;
           h1{
             font-size: 25px;
-            margin-bottom: 20px;
+            margin-bottom: 5px;
           }
           p{
-            margin-bottom: 40px;
+            margin-bottom: 20px;
           }
         }
       }
@@ -345,36 +344,76 @@
 
 .featured-professions {
     margin: 14px 0;
-    height: 390px;
     background-color: $white;
-    padding: 20px;
+    .professions-item{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 390px;
+      .featured-professions-content{
+        width: 100%;
+        padding: 0 20px;
+      }
+      .featured-professions-img{
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-size: cover;
 
-    &-content {
-        width: 50%;
-    }
-
-    &-img {
-        width: 50%;
+      }
     }
 }
 
 .actually-professions {
     display: flex;
     margin-bottom: 14px;
-
+    height: 390px;
     &-in-kz {
-        height: 390px;
-        width: 50%;
+        height: 100%;
         background-color: $white;
-        margin-right: 14px;
+    }
+    .col-md-6{
+      padding: 0;
+      &:first-child{
+        padding-right: 7px;
+      }
+      &:last-child{
+        padding-left: 7px;
+      }
+    }
+
+    .professions-item{
+      height: 390px;
+      width: 100%;
+
+      &:after{
+        content: ' ';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-image: linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 100%);
+        opacity: .72;
+      }
+
+      .actually-professions-content{
+        height: 100%;
+        width: 100%;
         padding: 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        color: $white;
+        *{
+          z-index: 2;
+        }
+      }
     }
 
     &-in-region {
-        width: 50%;
-        height: 390px;
+        height: 100%;
         background-color: $white;
-        padding: 20px;
     }
 }
 

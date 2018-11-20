@@ -2,10 +2,13 @@ $(document).ready(function() {
 
     $('.owl-carousel').owlCarousel({
         loop: true,
-        margin: 10,
-        nav: true,
+        nav: false,
+        autoplay: true,
+        autoplayTimeout: 3000,
+        dots: false,
         items: 1
     });
+
     $('select[name="question_id"]').on('change', function() {
         var countryId = $(this).val();
         if (countryId) {
@@ -35,6 +38,10 @@ $(document).ready(function() {
             $('select[name="correct"]').empty();
         }
 
+    });
+    $('.owl-professions').owlCarousel({
+      nav: true,
+      items: 2
     });
 
 });

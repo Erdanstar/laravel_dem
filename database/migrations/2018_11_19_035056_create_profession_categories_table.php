@@ -16,7 +16,7 @@ class CreateProfessionCategoriesTable extends Migration
         Schema::create('profession_categories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title');
-            $table->integer('orentation_id')->unsigned();
+            $table->string('image');
             $table->timestamps();
         });
     }

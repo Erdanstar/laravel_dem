@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Profession;
 use App\Quiz;
 use App\Post;
 use App\Country;
@@ -21,8 +23,10 @@ class HomeController extends Controller
     public function index()
     {
       $posts = Post::latest()->paginate(5);
+      $professions = Profession::all();
       return view('pages.home', [
-        'posts' => $posts
+        'posts' => $posts,
+        'professions' => $professions
       ]);
     }
 
@@ -31,6 +35,13 @@ class HomeController extends Controller
       $quizzes = Quiz::all();
       return view('quiz.index', ['quizzes'=>$quizzes]);
     }
+
+    public function profile()
+    {
+      $user = Auth::user();
+      return view('auth.profile', ['user'	=>	$user]);
+    }
+
 
     public function showTest($slug, $question_id)
     {

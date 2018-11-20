@@ -262,22 +262,52 @@
                 </div>
             </div>
             <div class="col-md-8">
+
                 <div class="featured-professions">
-                    <div class="featured-professions-content">
-                        <h1>Cіз үшін арналған мамандықтар</h1>
-                    </div>
-                    <div class="featured-professions-img">
-                        <h1>Мамандық суреті</h1>
+                    <div class="owl-carousel owl-theme">
+                      @foreach ($professions as $profession)
+                        <div class="professions-item">
+                          <div class="featured-professions-content">
+                              <h1>{{$profession->title}}</h1>
+                              <p>{{$profession->description}}</p>
+                          </div>
+                          <div class="featured-professions-img" style="background-image: url('{{$profession->category->getImage()}}');">
+                          </div>
+                        </div>
+                      @endforeach
                     </div>
                 </div>
                 <div class="actually-professions">
-                    <div class="actually-professions-in-kz">
-                        <h1>Қазақстандағы ең танымал болған мамандық</h1>
+                    <div class="col-md-6">
+                      <div class="actually-professions-in-kz">
+                        <div class="owl-carousel owl-theme">
+                        @foreach ($professions as $profession)
+                          <div class="professions-item" style="background-image: url('{{$profession->category->getImage()}}');">
+                            <div class="actually-professions-content">
+                                <h1>{{$profession->title}}</h1>
+                                <p>{{$profession->description}}</p>
+                            </div>
+                          </div>
+                        @endforeach
+                      </div>
+                      </div>
                     </div>
-                    <div class="actually-professions-in-region">
-                        <h1>Сіздің облысыңыздағы ең танымал болған мамандық</h1>
+                    <div class="col-md-6">
+                      <div class="actually-professions-in-region">
+                        <div class="owl-carousel owl-theme">
+                        @foreach ($professions as $profession)
+                          <div class="professions-item" style="background-image: url('{{$profession->category->getImage()}}');">
+                            <div class="actually-professions-content">
+                                <h1>{{$profession->title}}</h1>
+                                <p>{{$profession->description}}</p>
+                            </div>
+                          </div>
+                        @endforeach
+                      </div>
+                      </div>
                     </div>
                 </div>
+
                 <div class="video">
                     <iframe width="100%" height="447" src="https://www.youtube.com/embed/LNjLq5TMi8k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                 </div>

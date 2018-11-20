@@ -224,42 +224,42 @@
   margin-bottom: 14px;
 }
 
-.slider .owl-carousel {
+.owl-carousel {
   position: relative;
 }
 
-.slider .owl-carousel .owl-prev {
+.owl-carousel .owl-prev {
   position: absolute;
   top: 50%;
   left: 14px;
   color: #656565;
 }
 
-.slider .owl-carousel .owl-prev span {
+.owl-carousel .owl-prev span {
   font-size: 30px;
 }
 
-.slider .owl-carousel .owl-prev:hover {
+.owl-carousel .owl-prev:hover {
   background: transparent !important;
   color: #656565 !important;
 }
 
-.slider .owl-carousel .owl-next {
+.owl-carousel .owl-next {
   position: absolute;
   top: 50%;
   right: 14px;
 }
 
-.slider .owl-carousel .owl-next span {
+.owl-carousel .owl-next span {
   font-size: 30px;
 }
 
-.slider .owl-carousel .owl-next:hover {
+.owl-carousel .owl-next:hover {
   background: transparent !important;
   color: #656565 !important;
 }
 
-.slider .owl-carousel .owl-dots {
+.owl-carousel .owl-dots {
   position: absolute;
   bottom: 14px;
   left: 50%;
@@ -297,7 +297,8 @@
   bottom: 0;
   right: 0;
   left: 0;
-  background-color: #000;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(30%, black), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(0deg, black 0%, black 30%, rgba(0, 0, 0, 0) 100%);
   opacity: .72;
 }
 
@@ -318,23 +319,23 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
   color: #ffffff;
-  padding: 0 40px;
+  padding: 40px;
 }
 
 .services .tab-pane .tab-body .container h1 {
   font-size: 25px;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
 }
 
 .services .tab-pane .tab-body .container p {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
 .services-links {
@@ -615,17 +616,32 @@
 
 .featured-professions {
   margin: 14px 0;
-  height: 390px;
   background-color: #ffffff;
-  padding: 20px;
 }
 
-.featured-professions-content {
-  width: 50%;
+.featured-professions .professions-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 390px;
 }
 
-.featured-professions-img {
-  width: 50%;
+.featured-professions .professions-item .featured-professions-content {
+  width: 100%;
+  padding: 0 20px;
+}
+
+.featured-professions .professions-item .featured-professions-img {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
 }
 
 .actually-professions {
@@ -633,21 +649,67 @@
   display: -ms-flexbox;
   display: flex;
   margin-bottom: 14px;
+  height: 390px;
 }
 
 .actually-professions-in-kz {
-  height: 390px;
-  width: 50%;
+  height: 100%;
   background-color: #ffffff;
-  margin-right: 14px;
+}
+
+.actually-professions .col-md-6 {
+  padding: 0;
+}
+
+.actually-professions .col-md-6:first-child {
+  padding-right: 7px;
+}
+
+.actually-professions .col-md-6:last-child {
+  padding-left: 7px;
+}
+
+.actually-professions .professions-item {
+  height: 390px;
+  width: 100%;
+}
+
+.actually-professions .professions-item:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(black), color-stop(30%, black), to(rgba(0, 0, 0, 0)));
+  background-image: linear-gradient(0deg, black 0%, black 30%, rgba(0, 0, 0, 0) 100%);
+  opacity: .72;
+}
+
+.actually-professions .professions-item .actually-professions-content {
+  height: 100%;
+  width: 100%;
   padding: 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  color: #ffffff;
+}
+
+.actually-professions .professions-item .actually-professions-content * {
+  z-index: 2;
 }
 
 .actually-professions-in-region {
-  width: 50%;
-  height: 390px;
+  height: 100%;
   background-color: #ffffff;
-  padding: 20px;
 }
 
 .tabs {

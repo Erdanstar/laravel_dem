@@ -28,6 +28,7 @@ Route::get('/', 'HomeController@index');
 Route::get('/quiz', 'HomeController@test')->name('quiz');
 Route::get('/quiz/{slug}/{question_id}', 'HomeController@showTest');
 Route::post('/uquestions', 'HomeController@storeQuestions');
+Route::get('/profile', 'HomeController@profile');
 
 
 Auth::routes();
