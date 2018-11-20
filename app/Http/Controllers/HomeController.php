@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Quiz;
 use App\Post;
+use App\Country;
 use App\QuizQuestion;
 use App\QuizQuestionOption;
 
@@ -20,7 +21,9 @@ class HomeController extends Controller
     public function index()
     {
       $posts = Post::latest()->paginate(5);
-      return view('pages.home', ['posts' => $posts]);
+      return view('pages.home', [
+        'posts' => $posts
+      ]);
     }
 
     public function test()

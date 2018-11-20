@@ -57,6 +57,46 @@
 .services {
     display: flex;
     background: url("/img/test.jpg");
+    .tab-pane{
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center center;
+      position: relative;
+      &:after{
+        content: ' ';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        background-color: #000;
+        opacity: .72;
+      }
+      .tab-body, .container{
+        height: 100%;
+      }
+      .tab-body{
+        *{
+          z-index: 2;
+        }
+        .container{
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          color: $white;
+          padding: 0 40px;
+          h1{
+            font-size: 25px;
+            margin-bottom: 20px;
+          }
+          p{
+            margin-bottom: 40px;
+          }
+        }
+      }
+    }
 
     &-links {
         background-color: #13243B;
@@ -252,6 +292,32 @@
     background-color: $white;
     margin-bottom: 14px;
 
+    .nav-tabs{
+      .nav-link{
+        font-size: 30px;
+        font-weight: 500;
+        color: $text-dark;
+        font-family: $default-family;
+        background: none;
+        border: none;
+        &.active{
+          background: none !important;
+          border: none !important;
+        }
+      }
+      .nav-item.show .nav-link{
+        background: none !important;
+        border: none !important;
+      }
+    }
+
+
+    .dropdown-item{
+      font-size: 20px;
+      font-weight: 500;
+      color: $text-dark;
+      font-family: $default-family;
+    }
     &-header {
         display: flex;
         margin-bottom: 29px;

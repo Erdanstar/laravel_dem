@@ -34,23 +34,52 @@ body{
 input.form-control{
   height: 52px;
 }
-.btn{
+.btn-primary{
   padding: 14px 30px;
   font-size: 18px;
   color: $white;
   text-transform: uppercase;
   font-weight: 300;
   font-family: $default-family;
-  background-color: #ed5f5e;
+  background-color: $button;
+  border: none;
+  &:hover{
+    background-color: darken($button, 5%);
+  }
+  &:focus{
+    box-shadow: none;
+    background-color: lighten($button, 5%);
+  }
+  &:active{
+    box-shadow: none !important;
+    background-color: lighten($button, 5%) !important;
+  }
 }
 .btn-outline{
   padding: 14px 30px;
   font-size: 18px;
-  color: #ed5f5e;
+  color: $button;
+  cursor: pointer;
   text-transform: uppercase;
   font-weight: 300;
   font-family: $default-family;
   background-color: transparent;
-  border: 3px solid #ed5f5e;
+  border: 3px solid $button;
   border-radius: 5px;
+}
+.btn-outline-white{
+  padding: 14px 30px;
+  font-size: 18px;
+  color: $white;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-family: $default-family;
+  background-color: transparent;
+  border: 2px solid $white;
+  border-radius: 5px;
+  &:hover{
+    background-color: $white;
+    color: $text-dark;
+  }
 }

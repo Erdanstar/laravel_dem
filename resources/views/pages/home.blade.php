@@ -102,29 +102,42 @@
                         </li>
                     </ul>
                     <div class="tab-content" id="myTabContent">
-                        <div class="tab-pane fade show active" id="quiz" role="tabpanel" aria-labelledby="quiz-tab">
-                            Сұрақ-жауап
+                        <div class="tab-pane fade show active" id="quiz" role="tabpanel" aria-labelledby="quiz-tab" style="background-image: url('/img/quiz-bg.jpg')">
+                            <div class="tab-body">
+                                <div class="container">
+                                    <h1>Кәсіби бағытыңызды білу үшін тестті өтіп көріңіз</h1>
+                                    <p>Бұл тестте біз сізге 20 сұраққа жауап беру керек болады.
+                                        Сіздің жауабыңыз арқылы сіздің қай салаға жақын екеніңізді
+                                        шығарып береді.
+                                    </p>
+                                    <a href="#" class="btn btn-outline-white">Тестке өту</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="training" role="tabpanel" aria-labelledby="training-tab">
-                            Пікір
+                        <div class="tab-pane fade" id="training" role="tabpanel" aria-labelledby="training-tab" style="background-image: url('/img/training-bg.jpg')">
+                            <div class="tab-body">
+                                <div class="container">
+                                    <h1>Кәсіби бағытыңызды білу үшін тестті өтіп көріңіз</h1>
+                                    <p>Бұл тестте біз сізге 20 сұраққа жауап беру керек болады.
+                                        Сіздің жауабыңыз арқылы сіздің қай салаға жақын екеніңізді
+                                        шығарып береді.
+                                    </p>
+                                    <a href="#" class="btn btn-outline-white">Тестке өту</a>
+                                </div>
+                            </div>
                         </div>
-                        <div class="tab-pane fade" id="interview" role="tabpanel" aria-labelledby="interview-tab">
-                            Ұсыныс
+                        <div class="tab-pane fade" id="interview" role="tabpanel" aria-labelledby="interview-tab" style="background-image: url('/img/interview-bg.jpg')">
+                            <div class="tab-body">
+                                <div class="container">
+                                    <h1>Кәсіби бағытыңызды білу үшін тестті өтіп көріңіз</h1>
+                                    <p>Бұл тестте біз сізге 20 сұраққа жауап беру керек болады.
+                                        Сіздің жауабыңыз арқылы сіздің қай салаға жақын екеніңізді
+                                        шығарып береді.
+                                    </p>
+                                    <a href="#" class="btn btn-outline-white">Тестке өту</a>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div id="test" class="city collapse">
-                        <h2>London</h2>
-                        <p>London is the capital of England.</p>
-                    </div>
-
-                    <div id="training" class="city collapse">
-                        <h2>Paris</h2>
-                        <p>Paris is the capital of France.</p>
-                    </div>
-
-                    <div id="interview" class="city collapse">
-                        <h2>Tokyo</h2>
-                        <p>Tokyo is the capital of Japan.</p>
                     </div>
                 </div>
             </div>
@@ -184,18 +197,67 @@
                 </div>
                 <div class="questions">
                     <div class="questions-header">
-                        <h1>Сұрақ қою</h1>
-                        <img src="/svg/dropdown.svg" alt="">
+                        <ul class="nav nav-tabs" id="myTab" role="tablist">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Таңдаңыз</a>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item" href="#qforms" id="qforms-tab" data-toggle="tab" role="tab" aria-controls="qforms" aria-selected="true">Сұрақ қою</a>
+                                    <a class="dropdown-item" href="#cforms" id="cforms-tab" data-toggle="tab" role="tab" aria-controls="cforms" aria-selected="true">Пікір қалдыру</a>
+                                    <a class="dropdown-item" href="#sforms" id="sforms-tab" data-toggle="tab" role="tab" aria-controls="sforms" aria-selected="true">Ұсыныс жасау</a>
+                                    <a class="dropdown-item" href="#oforms" id="oforms-tab" data-toggle="tab" role="tab" aria-controls="oforms" aria-selected="true">Басқа</a>
+                                </div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="questions-form">
-                        <form>
-                            <div class="form-group">
-                                <input class="form-control" name="name" type="text" placeholder="Аты">
-                                <input class="form-control" name="email" type="text" placeholder="e-mail">
-                                <textarea name="question" class="form-control" rows="5" placeholder="Сұрақ"></textarea>
-                                <button type="submit" class="btn">Жіберу</button>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade show active" id="qforms" role="tabpanel" aria-labelledby="qforms-tab">
+                            <div class="questions-form">
+                                <form>
+                                    <div class="form-group">
+                                        <input class="form-control" name="name" type="text" placeholder="Аты">
+                                        <input class="form-control" name="email" type="text" placeholder="e-mail">
+                                        <textarea name="question" class="form-control" rows="5" placeholder="Сұрақ"></textarea>
+                                        <button type="submit" class="btn btn-primary">Сұрақ қою</button>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                        </div>
+                        <div class="tab-pane fade" id="cforms" role="tabpanel" aria-labelledby="cforms-tab">
+                            <div class="questions-form">
+                                <form>
+                                    <div class="form-group">
+                                        <input class="form-control" name="name" type="text" placeholder="Аты">
+                                        <input class="form-control" name="email" type="text" placeholder="e-mail">
+                                        <textarea name="question" class="form-control" rows="5" placeholder="Пікір"></textarea>
+                                        <button type="submit" class="btn btn-primary">Пікір қалдыру</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="sforms" role="tabpanel" aria-labelledby="sforms-tab">
+                            <div class="questions-form">
+                                <form>
+                                    <div class="form-group">
+                                        <input class="form-control" name="name" type="text" placeholder="Аты">
+                                        <input class="form-control" name="email" type="text" placeholder="e-mail">
+                                        <textarea name="question" class="form-control" rows="5" placeholder="Ұсыныс"></textarea>
+                                        <button type="submit" class="btn btn-primary">Ұсыныс жасау</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="tab-pane fade" id="oforms" role="tabpanel" aria-labelledby="oforms-tab">
+                            <div class="questions-form">
+                                <form>
+                                    <div class="form-group">
+                                        <input class="form-control" name="name" type="text" placeholder="Аты">
+                                        <input class="form-control" name="email" type="text" placeholder="e-mail">
+                                        <textarea name="question" class="form-control" rows="5" placeholder="Басқа"></textarea>
+                                        <button type="submit" class="btn btn-primary">Жіберу</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -237,18 +299,18 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="questions" role="tabpanel" aria-labelledby="questions-tab">
                             <div class="question_list">
-                              <div class="question">
-                                <h3 class="question"></h3>
-                                <span class="author">
+                                <div class="question">
+                                    <h3 class="question"></h3>
+                                    <span class="author">
 
-                                </span>
-                                <span class="tags">
+                                    </span>
+                                    <span class="tags">
 
-                                </span>
-                                <span class="views">
+                                    </span>
+                                    <span class="views">
 
-                                </span>
-                              </div>
+                                    </span>
+                                </div>
                             </div>
                         </div>
                         <div class="tab-pane fade" id="comments" role="tabpanel" aria-labelledby="comments-tab">
@@ -293,37 +355,35 @@
             </div>
         </div>
         <footer class="main-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-8">
-                        <div class="main-footer-content">
-                            <div class="social">
-                                <a href="#"><img src="/img/facebook-icon.png" alt=""></a>
-                                <a href="#"><img src="/img/instagram-icon.png" alt=""></a>
-                                <a href="#"><img src="/img/vk-icon.png" alt=""></a>
-                                <a href="#"><img src="/img/youtube-icon.png" alt=""></a>
-                            </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="main-footer-content">
+                        <div class="social">
+                            <a href="#"><img src="/img/facebook-icon.png" alt=""></a>
+                            <a href="#"><img src="/img/instagram-icon.png" alt=""></a>
+                            <a href="#"><img src="/img/vk-icon.png" alt=""></a>
+                            <a href="#"><img src="/img/youtube-icon.png" alt=""></a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="main-footer-form">
-                            <div class="form-header">
-                                <h1>Жеке кабинет</h1>
-                            </div>
-                            <form action="">
-                                <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="e-mail">
-                                    <input type="email" class="form-control" placeholder="пароль">
-                                    <div class="buttons">
-                                        <button type="submit" class="btn">Кіру</button>
-                                        <button type="submit" class="btn-outline">Тіркелу</button>
-                                    </div>
-                                    <small id="emailHelp" class="form-text text-muted">
-                                        <a href="#" class="remember-password">пароль?</a>
-                                    </small>
-                                </div>
-                            </form>
+                </div>
+                <div class="col-md-4">
+                    <div class="main-footer-form">
+                        <div class="form-header">
+                            <h1>Жеке кабинет</h1>
                         </div>
+                        <form action="">
+                            <div class="form-group">
+                                <input type="email" class="form-control" placeholder="e-mail">
+                                <input type="email" class="form-control" placeholder="пароль">
+                                <div class="buttons">
+                                    <button type="submit" class="btn btn-primary">Кіру</button>
+                                    <button type="submit" class="btn btn-outline">Тіркелу</button>
+                                </div>
+                                <small id="emailHelp" class="form-text text-muted">
+                                    <a href="#" class="remember-password">пароль?</a>
+                                </small>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
