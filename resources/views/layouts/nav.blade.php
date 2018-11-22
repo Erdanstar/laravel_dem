@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2 d-flex align-items-center">
-                <a href="#" class="logo"><img src="img/logo.png" alt="Logo" /></a>
+                <a href="/" class="logo"><img src="img/logo.png" alt="Logo" /></a>
             </div>
             <div class="col-md-6">
                 <ul class="main-nav d-flex align-items-center">
@@ -15,7 +15,7 @@
             <div class="col-md-3 d-flex justify-content-end">
                 <ul class="right-nav d-flex align-items-center">
                     <li class="dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
+                        <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
                             <img src="img/location-icon.png" alt="Ваш город" />Ваш город
                         </a>
 

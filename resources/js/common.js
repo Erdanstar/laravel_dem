@@ -1,12 +1,17 @@
 $(document).ready(function() {
 
-    $('.owl-carousel').owlCarousel({
+    $('.top-slider').owlCarousel({
         loop: true,
         nav: false,
         autoplay: true,
         autoplayTimeout: 3000,
         dots: false,
         items: 1
+    });
+    $('.professions-owl').owlCarousel({
+      items: 1,
+      dots: false,
+      nav: true
     });
 
     $('select[name="question_id"]').on('change', function() {
@@ -38,10 +43,6 @@ $(document).ready(function() {
             $('select[name="correct"]').empty();
         }
 
-    });
-    $('.owl-professions').owlCarousel({
-      nav: true,
-      items: 2
     });
 
 });

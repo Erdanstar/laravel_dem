@@ -7,6 +7,7 @@
 @import "nav";
 @import "footer";
 @import "pages/home";
+@import "pages/login";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -66,6 +67,20 @@ input.form-control{
   background-color: transparent;
   border: 3px solid $button;
   border-radius: 5px;
+  &:hover{
+    color: darken($button, 5%);
+    border-color: darken($button, 5%);
+  }
+  &:focus{
+    box-shadow: none;
+    color: lighten($button, 5%);
+    border-color: lighten($button, 5%);
+  }
+  &:active{
+    box-shadow: none !important;
+    color: lighten($button, 5%) !important;
+    border-color: lighten($button, 5%) !important;
+  }
 }
 .btn-outline-white{
   padding: 14px 30px;

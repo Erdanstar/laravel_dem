@@ -1,6 +1,11 @@
 .slider {
     background-color: $white;
     margin-bottom: 14px;
+    .item{
+      background-size: cover;
+      background-position: center;
+      height: 587px;
+    }
 }
 .owl-carousel {
     position: relative;
@@ -253,11 +258,8 @@
 
             &-img {
                 margin-right: 12px;
-
-                img {
-                    width: auto;
-                    height: 73px;
-                }
+                background-size: cover;
+                height: 73px;
             }
 
             &-content {

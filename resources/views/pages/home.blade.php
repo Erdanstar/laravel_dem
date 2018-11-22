@@ -6,10 +6,10 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="slider">
-                    <div class="owl-carousel owl-theme">
-                        <div class="item"><img src="img/slider-3.jpg" alt=""></div>
-                        <div class="item"><img src="img/slider-2.jpg" alt=""></div>
-                        <div class="item"><img src="img/slider-1.jpg" alt=""></div>
+                    <div class="owl-carousel top-slider owl-theme">
+                        <div class="item" style="background-image: url('img/slider-1.jpg')"></div>
+                        <div class="item" style="background-image: url('img/slider-2.jpg')"></div>
+                        <div class="item" style="background-image: url('img/slider-3.jpg')"></div>
                     </div>
                 </div>
             </div>
@@ -110,7 +110,7 @@
                                         Сіздің жауабыңыз арқылы сіздің қай салаға жақын екеніңізді
                                         шығарып береді.
                                     </p>
-                                    <a href="#" class="btn btn-outline-white">Тестке өту</a>
+                                    <a href="{{route('quiz')}}" class="btn btn-outline-white">Тестке өту</a>
                                 </div>
                             </div>
                         </div>
@@ -175,8 +175,7 @@
                             <div class="news-carousel-item">
                                 @foreach ($posts as $post)
                                 <div class="news-item">
-                                    <div class="news-item-img">
-                                        <img src="{{$post->getImage()}}" alt="">
+                                    <div class="news-item-img" style="background-image: url('{{$post->getImage()}}')">
                                     </div>
                                     <div class="news-item-content">
                                         <div class="news-item-title">
@@ -264,7 +263,7 @@
             <div class="col-md-8">
 
                 <div class="featured-professions">
-                    <div class="owl-carousel owl-theme">
+                    <div class="owl-carousel owl-theme professions-owl">
                       @foreach ($professions as $profession)
                         <div class="professions-item">
                           <div class="featured-professions-content">
@@ -280,7 +279,7 @@
                 <div class="actually-professions">
                     <div class="col-md-6">
                       <div class="actually-professions-in-kz">
-                        <div class="owl-carousel owl-theme">
+                        <div class="owl-carousel owl-theme professions-owl">
                         @foreach ($professions as $profession)
                           <div class="professions-item" style="background-image: url('{{$profession->category->getImage()}}');">
                             <div class="actually-professions-content">
@@ -294,7 +293,7 @@
                     </div>
                     <div class="col-md-6">
                       <div class="actually-professions-in-region">
-                        <div class="owl-carousel owl-theme">
+                        <div class="owl-carousel owl-theme professions-owl">
                         @foreach ($professions as $profession)
                           <div class="professions-item" style="background-image: url('{{$profession->category->getImage()}}');">
                             <div class="actually-professions-content">

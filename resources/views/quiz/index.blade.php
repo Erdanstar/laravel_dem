@@ -3,19 +3,18 @@
 @section('content')
 <div class="container">
     <div class="row">
-      @foreach ($quizzes as $quiz)
-        <div class="col-md-4">
-            <div class="jumbotron">
-                <h1 class="display-4">{{$quiz->title}}</h1>
-                <p class="lead">В этом тесте  вопросов</p>
-                <hr class="my-4">
-                @foreach ($quiz->questions as $question)
-                  <a class="btn btn-primary btn-lg" href="{{url('quiz/'. $quiz->slug . '/' . $question->getQuestionLimit($quiz->id)->id )}}" role="button">Пройти</a>
-                @endforeach
-
-            </div>
+        @foreach ($quizzes as $quiz)
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            @foreach ($quiz->questions as $question)
+            <a class="quiz-btn" href="{{url('quiz/'. $quiz->slug . '/' . $question->getQuestionLimit($quiz->id)->id )}}" role="button">
+                <img src="{{$quiz->getImage()}}" alt="">
+                <span class="content">
+                  <h1>{{$quiz->title}}</h1>
+                </span>
+            </a>
+            @endforeach
         </div>
-      @endforeach
+        @endforeach
     </div>
 </div>
 @endsection

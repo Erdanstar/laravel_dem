@@ -1,0 +1,38 @@
+.form-wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+  form{
+    background-color: $white;
+    padding: 40px 30px;
+    width: 100%;
+    h2{
+      margin-left: 10px;
+      margin-bottom: 45px;
+    }
+    input.form-control{
+      margin: 0;
+      margin-bottom: 20px;
+    }
+    .form-check-label{
+      margin-bottom: 20px;
+    }
+    .buttons{
+      display: flex;
+      margin-bottom: 8px;
+      .btn-primary{
+        margin-right: 14px;
+        width: 100%;
+      }
+    }
+    .btn-link{
+      color: $text-dark;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 400;
+      font-family: $default-family;
+      padding: 0;
+    }
+  }
+}

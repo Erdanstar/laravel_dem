@@ -40,6 +40,9 @@
                   <td>{{$quiz->id}}</td>
                   <td>{{$quiz->title}}</td>
                   <td>
+                    <img src="{{$quiz->getImage()}}" alt="" width="100">
+                  </td>
+                  <td>
                   <a href="{{route('quiz.edit', $quiz->id)}}" class="fa fa-pencil"></a>
 
                   {{Form::open(['route'=>['quiz.destroy', $quiz->id], 'method'=>'delete'])}}

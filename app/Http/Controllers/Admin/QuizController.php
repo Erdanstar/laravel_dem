@@ -28,6 +28,7 @@ class QuizController extends Controller
      */
     public function create()
     {
+
       return view('admin.quiz.create', compact('statuses'));
     }
 
@@ -43,7 +44,8 @@ class QuizController extends Controller
           'title' =>'required'
       ]);
 
-      $post = Quiz::add($request->all());
+      $quiz = Quiz::add($request->all());
+      $quiz->uploadImage($request->file('image'));
       return redirect()->route('quiz.index');
     }
 
@@ -100,6 +102,8 @@ class QuizController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $quiz = Quiz::find($id);
+        $quiz->remove();
+        return redirect()->route('quiz.index');
     }
 }

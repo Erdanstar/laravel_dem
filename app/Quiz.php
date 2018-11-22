@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use \Storage;
 use App\Status;
 use App\Orentation;
 use App\QuizQuestion;
@@ -12,7 +13,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Quiz extends Model
 {
   use Sluggable;
-  protected $fillable = ['title', 'status_id'];
+  protected $fillable = ['title', 'image'];
 
   public function questions()
   {
@@ -42,7 +43,35 @@ class Quiz extends Model
       ];
   }
 
+  public function removeImage()
+  {
+      if($this->image != null)
+      {
+          Storage::delete('uploads/' . $this->image);
+      }
+  }
 
+  public function uploadImage($image)
+  {
+    if($image == null) { return; }
+
+    $this->removeImage();
+    $filename = str_random(10) . '.' . $image->getClientOriginalExtension();
+    $image->move(public_path('uploads'), $filename);
+    $this->image = $filename;
+    $this->save();
+  }
+
+  public function getImage()
+  {
+    if($this->image == null)
+    {
+      return '/img/no-image.png';
+    }
+
+    return '/uploads/' . $this->image;
+
+  }
 
   public static function add($fields)
   {
@@ -61,7 +90,10 @@ class Quiz extends Model
 
   public function remove()
   {
+    $this->removeImage();
     $this->delete();
   }
+
+
 
 }

@@ -24,7 +24,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], fu
   Route::resource('/orentations', 'OrentationController');
 });
 
-Route::get('/', 'HomeController@index');
+Route::get('/', 'HomeController@index')->name('home');
 Route::get('/quiz', 'HomeController@test')->name('quiz');
 Route::get('/quiz/{slug}/{question_id}', 'HomeController@showTest');
 Route::post('/uquestions', 'HomeController@storeQuestions');
@@ -32,5 +32,3 @@ Route::get('/profile', 'HomeController@profile');
 
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
