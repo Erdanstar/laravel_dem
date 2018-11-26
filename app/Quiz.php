@@ -42,7 +42,10 @@ class Quiz extends Model
           ]
       ];
   }
-
+  public function getQuestionLimit($quiz)
+  {
+    return QuizQuestion::where('quiz_id', '=', $quiz)->orderBy('id')->limit(1)->first();
+  }
   public function removeImage()
   {
       if($this->image != null)

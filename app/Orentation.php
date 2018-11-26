@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Profession;
+use App\QuizResult;
 
 class Orentation extends Model
 {
@@ -17,6 +18,10 @@ class Orentation extends Model
   public function professions()
   {
     $this->hasMany(Profession::class);
+  }
+  public function quizResults()
+  {
+    $this->hasMany(QuizResult::class);
   }
 
   public function correct()

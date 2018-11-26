@@ -178,12 +178,8 @@
                                     <div class="news-item-img" style="background-image: url('{{$post->getImage()}}')">
                                     </div>
                                     <div class="news-item-content">
-                                        <div class="news-item-title">
-                                            <a href="#">{{$post->title}}</a>
-                                        </div>
-                                        <div class="news-item-date">
-                                            <p>{{date("d/m/Y", strtotime($post->created_at))}}</p>
-                                        </div>
+                                      <a href="#">{{$post->title}}</a>
+                                      <p>{{date("d/m/Y", strtotime($post->created_at))}}</p>
                                     </div>
                                 </div>
                                 @endforeach

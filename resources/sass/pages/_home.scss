@@ -253,28 +253,28 @@
             display: -webkit-flex;
             display: -ms-flex;
             display: flex;
-            align-items: center;
             justify-content: center;
 
             &-img {
                 margin-right: 12px;
                 background-size: cover;
                 height: 73px;
+                width: 73px;
             }
 
             &-content {
                 display: -webkit-flex;
                 display: -ms-flex;
                 display: flex;
-                justify-content: center;
+                justify-content: space-between;
                 flex-direction: column;
-            }
-
-            &-title {
                 a {
                     text-decoration: none;
                     color: $text-dark;
                     font-size: 12px;
+                }
+                p{
+                  margin: 0;
                 }
             }
         }

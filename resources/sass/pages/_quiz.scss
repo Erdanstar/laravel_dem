@@ -1,0 +1,68 @@
+.test {
+    min-height: 320px !important;
+    div {
+        position: relative;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+    }
+    .cover {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        border-radius: 50%;
+
+        &:before {
+            background: linear-gradient(180deg, rgba(0,0,0,0) 0, rgba(0,0,0,0.9));
+            position: absolute;
+            content: '';
+            z-index: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border-radius: 50%;
+        }
+    }
+
+    .body {
+        color: #fff;
+        height: 100%;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        justify-content: flex-end;
+
+        a {
+            color: #fff;
+            font-size: 130%;
+            font-weight: bold;
+            border-bottom: none;
+            line-height: 1.66rem;
+            text-shadow: 2px 1px 0 rgba(0,0,0,0.66);
+            font-family: Lava, sans-serif;
+        }
+    }
+}
+label input[type="radio"] ~ i.far.fa-circle{
+    display: inline;
+}
+label input[type="radio"]{
+  display: none;
+}
+label input[type="radio"] ~ i.fas.fa-check-circle{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.far.fa-circle{
+    display: none;
+}
+label input[type="radio"]:checked ~ i.fas.fa-check-circle{
+    display: inline;
+}

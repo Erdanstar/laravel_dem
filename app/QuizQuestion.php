@@ -22,11 +22,6 @@ class QuizQuestion extends Model
       $this->attributes['quiz_id'] = $id ? $id : null;
     }
 
-    public function getQuestionLimit($quiz)
-    {
-      return $this->where('quiz_id', '=', $quiz)->orderBy('id')->limit(1)->first();
-    }
-
 
 
     public static function getByTopicAndQuestionNumber($slug, $questionNumber)
@@ -34,14 +29,16 @@ class QuizQuestion extends Model
       $quiz = Quiz::where('slug', '=', $slug)->first();
       return QuizQuestion::where('quiz_id', '=', $quiz->id)->where('id', '=', $questionNumber)->first();
     }
-    public function nextQuestionLink($quiz, $questionNumber) {
+    public static function nextQuestionLink($slug, $questionNumber) {
+      $quiz = Quiz::where('slug', '=', $slug)->first();
+      $nextquestion = QuizQuestion::orderBy('id')->where('id', '>', $questionNumber)->first();
         $nextQuestionLink = [];
         if ($quiz->questions->count() != $questionNumber) {
-            $nextQuestionLink['url']   = '/train/'. $baseTopicName . '/' . $quiz->slug . '/' . ++$questionNumber;
+            $nextQuestionLink['url']   = '/quiz/' . $quiz->slug . '/' . $nextquestion->id;
             $nextQuestionLink['text']  = 'Следующий вопрос';
             $nextQuestionLink['class'] = 'btn-default';
         } else {
-            $nextQuestionLink['url']   = '/';
+            $nextQuestionLink['url']   = '/quiz/result';
             $nextQuestionLink['text']  = 'Завершить';
             $nextQuestionLink['class'] = 'btn-primary';
         }

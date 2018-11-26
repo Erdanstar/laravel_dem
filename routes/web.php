@@ -27,7 +27,8 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], fu
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/quiz', 'HomeController@test')->name('quiz');
 Route::get('/quiz/{slug}/{question_id}', 'HomeController@showTest');
-Route::post('/uquestions', 'HomeController@storeQuestions');
+Route::post('/quiz/post', 'HomeController@postQuestion')->name('post.quiz');
+Route::get('/quiz/result', 'HomeController@result')->name('result.quiz');
 Route::get('/profile', 'HomeController@profile');
 
 
