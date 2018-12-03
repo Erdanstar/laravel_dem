@@ -9,8 +9,16 @@ $(document).ready(function() {
         items: 1
     });
     $('.professions-owl').owlCarousel({
-      items: 1,
-      dots: false,
-      nav: true
+        items: 1,
+        dots: false,
+        nav: true
     });
+
+    $(".nav-tabs li a").click(function(){
+
+      $(".dropdown-toggle").text($(this).text());
+      $(".dropdown-toggle").val($(this).text());
+
+   });
+
 });

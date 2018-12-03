@@ -15,7 +15,8 @@
     <section class="content">
         {{Form::open([
     'route'	=> ['quiz.update', $quiz->id],
-    'method'	=>	'put'
+    'method'	=>	'put',
+    'files' => true
   ])}}
         <!-- Default box -->
         <div class="box">
@@ -28,6 +29,12 @@
                     <div class="form-group">
                         <label for="exampleInputEmail1">Название</label>
                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Название" name="title" value="{{old('title')}}">
+                    </div>
+                    <div class="form-group">
+                      <label for="exampleInputFile">Лицевая картинка</label>
+                      <input type="file" id="exampleInputFile" name="image">
+
+                      <p class="help-block">Какое-нибудь уведомление о форматах..</p>
                     </div>
                 </div>
             </div>

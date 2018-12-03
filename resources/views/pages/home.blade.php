@@ -194,7 +194,7 @@
                     <div class="questions-header">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Таңдаңыз</a>
+                                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Сұрақ қою</a>
                                 <div class="dropdown-menu">
                                     <a class="dropdown-item" href="#qforms" id="qforms-tab" data-toggle="tab" role="tab" aria-controls="qforms" aria-selected="true">Сұрақ қою</a>
                                     <a class="dropdown-item" href="#cforms" id="cforms-tab" data-toggle="tab" role="tab" aria-controls="cforms" aria-selected="true">Пікір қалдыру</a>
@@ -207,7 +207,8 @@
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade show active" id="qforms" role="tabpanel" aria-labelledby="qforms-tab">
                             <div class="questions-form">
-                                <form>
+                                <form method="POST" action="/profile">
+                                  @csrf
                                     <div class="form-group">
                                         <input class="form-control" name="name" type="text" placeholder="Аты">
                                         <input class="form-control" name="email" type="text" placeholder="e-mail">
@@ -219,19 +220,21 @@
                         </div>
                         <div class="tab-pane fade" id="cforms" role="tabpanel" aria-labelledby="cforms-tab">
                             <div class="questions-form">
-                                <form>
+                                <form method="POST" action="/profile">
+                                  @csrf
                                     <div class="form-group">
                                         <input class="form-control" name="name" type="text" placeholder="Аты">
                                         <input class="form-control" name="email" type="text" placeholder="e-mail">
                                         <textarea name="question" class="form-control" rows="5" placeholder="Пікір"></textarea>
                                         <button type="submit" class="btn btn-primary">Пікір қалдыру</button>
                                     </div>
-                                </form>
+                                </form method="POST" action="/profile">
                             </div>
                         </div>
                         <div class="tab-pane fade" id="sforms" role="tabpanel" aria-labelledby="sforms-tab">
                             <div class="questions-form">
-                                <form>
+                                <form method="POST" action="/profile">
+                                  @csrf
                                     <div class="form-group">
                                         <input class="form-control" name="name" type="text" placeholder="Аты">
                                         <input class="form-control" name="email" type="text" placeholder="e-mail">
@@ -243,7 +246,8 @@
                         </div>
                         <div class="tab-pane fade" id="oforms" role="tabpanel" aria-labelledby="oforms-tab">
                             <div class="questions-form">
-                                <form>
+                                <form method="POST" action="/profile">
+                                  @csrf
                                     <div class="form-group">
                                         <input class="form-control" name="name" type="text" placeholder="Аты">
                                         <input class="form-control" name="email" type="text" placeholder="e-mail">
@@ -257,7 +261,6 @@
                 </div>
             </div>
             <div class="col-md-8">
-
                 <div class="featured-professions">
                     <div class="owl-carousel owl-theme professions-owl">
                       @foreach ($professions as $profession)

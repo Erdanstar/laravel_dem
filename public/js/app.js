@@ -39442,6 +39442,12 @@ $(document).ready(function () {
         dots: false,
         nav: true
     });
+
+    $(".nav-tabs li a").click(function () {
+
+        $(".dropdown-toggle").text($(this).text());
+        $(".dropdown-toggle").val($(this).text());
+    });
 });
 
 /***/ }),

@@ -84,13 +84,12 @@ class QuizController extends Controller
     public function update(Request $request, $id)
     {
       $this->validate($request, [
-          'title' =>'required',
-          'quiz_id'   =>  'required',
+          'title' =>'required'
       ]);
 
       $post = Quiz::find($id);
       $post->edit($request->all());
-
+      $post->uploadImage($request->file('image'));
       return redirect()->route('quiz.index');
     }
 

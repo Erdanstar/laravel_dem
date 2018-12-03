@@ -2,18 +2,16 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+    <div class="row d-flex justify-content-center">
         @foreach ($quizzes as $quiz)
-        <article class="col-sm-12 col-md-6 col-lg-4 tile-item test full">
-            <div>
-                <div class="cover" style="background-image: url('{{$quiz->getImage()}}');"></div>
-                <div class="body">
-                    <div class="title">
-                        <a class="nl" href="{{url('quiz/'. $quiz->slug . '/' . $quiz->getQuestionLimit($quiz->id)->id )}}" title="{{$quiz->title}}">{{$quiz->title}}</a>
-                    </div>
-                </div>
+          <div class="col-md-4">
+            <div class="quiz-items">
+              <div class="quiz-item">
+                <img src="{{$quiz->getImage()}}" alt="{{$quiz->title}}" width="154" height="154">
+                <a class="quiz-item-link" href="{{url($quiz->getQuestionLimit($quiz->id))}}">{{$quiz->title}}</a>
+              </div>
             </div>
-        </article>
+          </div>
         @endforeach
     </div>
 </div>

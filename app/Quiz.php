@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use \Storage;
+use App\Quiz;
 use App\Status;
 use App\Orentation;
 use App\QuizQuestion;
@@ -42,9 +43,15 @@ class Quiz extends Model
           ]
       ];
   }
-  public function getQuestionLimit($quiz)
+  public function getQuestionLimit($quiz_id)
   {
-    return QuizQuestion::where('quiz_id', '=', $quiz)->orderBy('id')->limit(1)->first();
+    $quiz = Quiz::find($quiz_id);
+    $question = QuizQuestion::where('quiz_id', '=', $quiz_id)->orderBy('id')->limit(1)->first();
+    if(empty($question)){
+      return '/quiz';
+    } else {
+      return 'quiz/'. $quiz->slug . '/' . $question->id . '';
+    }
   }
   public function removeImage()
   {

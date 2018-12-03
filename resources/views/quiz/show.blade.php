@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-10 offset-md-1">
-            <div class="jumbotron">
+            <div class="skill">
                 {!! Form::open([
                   'route' => 'post.quiz',
                   'method' => 'post',
@@ -16,10 +16,10 @@
                 {!! Form::hidden('nextClass', $next['class']) !!}
                 {!! Form::hidden('nextText', $next['text']) !!}
 
-                <p class="lead">{{$question->question_text}}</p>
+                <h4 class="skill-title">{{$question->question_text}}</h4>
                 @foreach($options as $answer)
-                <div class="radio">
-                    <label>
+                <div class="skill-radio">
+                    <label class="skill-radio-title">
                         {!! Form::radio('correct', $answer->id, null, ['id' => $answer->id, 'class' => 'required']) !!}
                         <i class="far fa-circle"></i><i class="fas fa-check-circle"></i>{{ $answer->option_text }}
                     </label>

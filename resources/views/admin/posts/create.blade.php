@@ -40,7 +40,7 @@
           <div class="col-md-12">
             <div class="form-group">
               <label for="exampleInputEmail1">Полный текст</label>
-              <textarea name="content" id="" cols="30" rows="10" class="form-control" ></textarea>
+              <textarea name="content">Next, use our Get Started docs to setup Tiny!</textarea>
           </div>
         </div>
       </div>
