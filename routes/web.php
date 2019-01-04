@@ -11,7 +11,7 @@
 |
 */
 
-Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], function()
+Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'admin'], function()
 {
   Route::get('/', 'DashboardController@dashboard')->name('admin.index');
   Route::resource('/posts', 'PostsController');
@@ -26,10 +26,13 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'auth'], fu
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/quiz', 'HomeController@test')->name('quiz');
-Route::get('/quiz/{slug}/{question_id}', 'HomeController@showTest');
-Route::post('/quiz/post', 'HomeController@postQuestion')->name('post.quiz');
-Route::get('/quiz/result', 'HomeController@result')->name('result.quiz');
 Route::get('/profile', 'HomeController@profile');
 
+Route::group(['middleware'	=>	'auth'], function(){
+    Route::get('/quiz/{slug}/{question_id}', 'QuizController@showTest');
+    Route::post('/quiz/post', 'QuizController@postQuestion')->name('post.quiz');
+    Route::get('/quiz/result', 'QuizController@showProfessions')->name('result.quiz.show');
+    Route::post('/quiz/result/post', 'QuizController@postResult')->name('result.quiz.post');
+});
 
 Auth::routes();

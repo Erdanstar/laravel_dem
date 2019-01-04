@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2 d-flex align-items-center">
-                <a href="/" class="logo"><img src="img/logo.png" alt="Logo" /></a>
+                <a href="/" class="logo"><img src="{{ asset('img/logo.png') }}" alt="Logo" /></a>
             </div>
             <div class="col-md-6">
                 <ul class="main-nav d-flex align-items-center">
@@ -16,7 +16,7 @@
                 <ul class="right-nav d-flex align-items-center">
                     <li class="dropdown">
                         <a id="navbarDropdown" class="nav-link" href="#" role="button" data-toggle="modal" data-target="#exampleModalCenter">
-                            <img src="img/location-icon.png" alt="Ваш город" />Ваш город
+                            <img src="{{ asset('img/location-icon.png') }}" alt="Ваш город" />Ваш город
                         </a>
 
                         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -37,7 +37,7 @@
                             </div>
                         </div>
                     </li>
-                    <li><a href="{{route('login')}}"><img src="img/user-icon.png" alt="User" /></a></li>
+                    <li><a href="{{route('login')}}"><img src="{{ asset('img/user-icon.png') }}" alt="User" /></a></li>
                 </ul>
             </div>
             <div class="col-md-1">

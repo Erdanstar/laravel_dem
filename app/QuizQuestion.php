@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Quiz;
-use App\QuizQuestion;
 use App\QuizCorrectOption;
 use App\QuizQuestionOption;
 
@@ -29,6 +28,7 @@ class QuizQuestion extends Model
       $quiz = Quiz::where('slug', '=', $slug)->first();
       return QuizQuestion::where('quiz_id', '=', $quiz->id)->where('id', '=', $questionNumber)->first();
     }
+
     public static function nextQuestionLink($slug, $questionNumber) {
       $quiz = Quiz::where('slug', '=', $slug)->first();
       $nextquestion = QuizQuestion::orderBy('id')->where('id', '>', $questionNumber)->first();

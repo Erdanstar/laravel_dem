@@ -8,6 +8,8 @@ use App\Orentation;
 
 class QuizResult extends Model
 {
+    protected $fillable = [ 'user_id', 'orentation_id' ];
+
     public function user()
     {
       $this->belongsTo(User::class);
