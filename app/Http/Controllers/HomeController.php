@@ -29,10 +29,14 @@ class HomeController extends Controller
     public function index()
     {
       $posts = Post::latest()->paginate(5);
-      $professions = Profession::orderByRaw('RAND(5)')->take(5)->get();
+      $professions1 = Profession::all()->take(5);
+      $professions2 = Profession::all()->where('id', '>', 5)->take(5);
+      $professions3 = Profession::all()->where('id', '>', 13)->take(5);
       return view('pages.home', [
         'posts' => $posts,
-        'professions' => $professions
+        'professions1' => $professions1,
+        'professions2' => $professions2,
+        'professions3' => $professions3
       ]);
     }
 

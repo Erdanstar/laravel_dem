@@ -5,6 +5,22 @@
       background-size: cover;
       background-position: center;
       height: 587px;
+      a{
+        position: absolute;
+        left: 47px;
+        bottom: 135px;
+        text-decoration: none;
+        background-color: #C92036;
+        font-size: 25px;
+        padding: 3px 28px;
+        color: #ffffff;
+        text-transform: uppercase;
+        font-weight: 700;
+        transition: all .3s ease;
+        &:hover{
+          background-color: darken(#C92036, 5%);
+        }
+      }
     }
 }
 .owl-carousel {
@@ -61,6 +77,11 @@
 .services {
     display: flex;
     background: url("/img/test.jpg");
+    .nav-tabs{
+      .nav-item{
+        margin-bottom: -13px;
+      }
+    }
     .tab-pane{
       height: 100%;
       background-repeat: no-repeat;
@@ -197,7 +218,18 @@
     background-color: $white;
     height: 286px;
     margin-top: 14px;
-    padding: 20px;
+    &-resume{
+      height: 50%;
+      width: 100%;
+      background-color: $active;
+      padding: 20px;
+    }
+    &-vacancy{
+      height: 50%;
+      width: 100%;
+      background-color: $indigo;
+      padding: 20px;
+    }
 }
 
 .news {
@@ -253,13 +285,20 @@
             display: -webkit-flex;
             display: -ms-flex;
             display: flex;
-            justify-content: center;
 
             &-img {
-                margin-right: 12px;
-                background-size: cover;
-                height: 73px;
+              margin-right: 12px;
+              background-size: cover;
+              width: 73px;
+              height: 73px;
+              img{
                 width: 73px;
+                height: 73px;
+                max-width: 100px;
+                float: left;
+                clear: both;
+                border-radius: 50%;
+              }
             }
 
             &-content {
@@ -313,6 +352,16 @@
       }
     }
 
+    .form-group{
+      &.auth{
+        textarea{
+          margin-bottom: 30px;
+        }
+        button{
+          margin-bottom: 5px;
+        }
+      }
+    }
 
     .dropdown-item{
       font-size: 20px;
@@ -448,9 +497,9 @@
         }
     }
 
-    .body {
-        height: 284px;
-        background-color: $white;
+    .tab-pane{
+      height: 360px;
+      background-color: $white;
     }
 }
 

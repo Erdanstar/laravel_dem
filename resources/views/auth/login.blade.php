@@ -8,7 +8,7 @@
 
                 <form method="POST" action="{{ route('login') }}">
                   @csrf
-                    <h2>Жеке кабинет</h2>
+                    <h2>Личный кабинет</h2>
                     <div class="form-group">
                         <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" placeholder="e-mail" name="email" value="{{ old('email') }}" required autofocus>
 
@@ -31,15 +31,15 @@
                         <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
 
                         <label class="form-check-label" for="remember">
-                            {{ __('Remember Me') }}
+                            {{ __('Запомнить') }}
                         </label>
                     </div>
 
                     <div class="form-group buttons">
                         <button type="submit" class="btn btn-primary">
-                            КІРУ
+                            ВОЙТИ
                         </button>
-                        <a href="{{route('register')}}" class="btn btn-outline">ТІРКЕЛУ</a>
+                        <a href="{{route('register')}}" class="btn btn-outline">РЕГИСТРАЦИЯ</a>
                     </div>
                     <small id="emailHelp" class="form-text text-muted">
                         <a class="btn btn-link" href="{{ route('password.request') }}">

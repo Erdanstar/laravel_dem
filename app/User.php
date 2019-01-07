@@ -17,7 +17,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'surname', 'name', 'email', 'password',
     ];
 
     /**
@@ -41,6 +41,36 @@ class User extends Authenticatable
     public function quizResults()
     {
       return $this->hasMany(QuizResult::class);
+    }
+
+    public function removeImage()
+    {
+        if($this->image != null)
+        {
+            Storage::delete('uploads/users' . $this->image);
+        }
+    }
+
+    public function uploadImage($image)
+    {
+    	if($image == null) { return; }
+
+    	$this->removeImage();
+    	$filename = str_random(10) . '.' . $image->getClientOriginalExtension();
+    	$image->move(public_path('uploads/users'), $filename);
+    	$this->image = $filename;
+    	$this->save();
+    }
+
+    public function getAvatar()
+    {
+    	if($this->image == null)
+    	{
+    		return '/img/user-no-image.png';
+    	}
+
+    	return '/uploads/users/' . $this->avatar;
+
     }
 
 }

@@ -6,10 +6,10 @@
             </div>
             <div class="col-md-6">
                 <ul class="main-nav d-flex align-items-center">
-                    <li><a href="#">Кәсіби бағдар</a></li>
-                    <li><a href="#">Жұмыс</a></li>
-                    <li><a href="#">Мамандық</a></li>
-                    <li><a href="#">Оқу</a></li>
+                    <li><a href="/indev">Профессиональная ориентация</a></li>
+                    <li><a href="/indev">Работа</a></li>
+                    <li><a href="/indev">Специальность</a></li>
+                    <li><a href="/indev">Образование</a></li>
                 </ul>
             </div>
             <div class="col-md-3 d-flex justify-content-end">
@@ -30,7 +30,7 @@
                                     </div>
                                     <div class="modal-body">
                                       @foreach ($countries as $country)
-                                        <a href="#" class="nav-link">{{$country->region}}</a>
+                                        <a href="/indev" class="nav-link">{{$country->region}}</a>
                                       @endforeach
                                     </div>
                                 </div>
@@ -42,8 +42,8 @@
             </div>
             <div class="col-md-1">
                 <div class="lang text-right d-flex flex-column">
-                    <a href="#" class="lang-link">Қазақша</a>
-                    <a href="#" class="lang-link">Русский</a>
+                    <a href="/indev" class="lang-link">Қазақша</a>
+                    <a href="/indev" class="lang-link">Русский</a>
                 </div>
             </div>
         </div>

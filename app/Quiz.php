@@ -4,7 +4,6 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use \Storage;
-use App\Quiz;
 use App\Status;
 use App\Orentation;
 use App\QuizQuestion;

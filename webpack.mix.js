@@ -44,5 +44,6 @@ mix.js('resources/js/app.js', 'public/js')
    mix.copy('resources/assets/admin/dist/fonts', 'public/fonts');
    mix.copy('resources/assets/admin/dist/img', 'public/img');
    mix.copy('resources/assets/admin/plugins/iCheck/minimal/blue.png', 'public/css');
+   mix.copy('resources/assets/documents', 'public/documents');
    mix.copy('resources/img', 'public/img');
    mix.copy('resources/svg', 'public/svg');

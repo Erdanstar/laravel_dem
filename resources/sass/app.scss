@@ -9,6 +9,7 @@
 @import "pages/home";
 @import "pages/login";
 @import "pages/quiz";
+@import "pages/profile";
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
@@ -32,9 +33,6 @@ body{
     box-shadow: 0 0 0 2px #56cbc7;
     color: #8e8c8c;
   }
-}
-input.form-control{
-  height: 52px;
 }
 .btn-primary{
   padding: 14px 30px;
@@ -97,5 +95,44 @@ input.form-control{
   &:hover{
     background-color: $white;
     color: $text-dark;
+  }
+}
+.indev{
+  width: 100%;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  &-text{
+    font-size: 35px;
+    position: absolute;
+    top: 350px;
+    left: 350px;
+    font-weight: 300;
+    font-family: $default-family;
+  }
+  &-back{
+    position: absolute;
+    font-size: 25px;
+    top: 390px;
+    left: 350px;
+    font-family: $default-family;
+    a{
+      text-decoration: none;
+      color: #212529;
+    }
+  }
+
+  &-bey{
+    position: absolute;
+    bottom: 250px;
+    left: 350px;
+    a{
+      font-family: $default-family;
+      font-weight: 300;
+      font-size: 25px;
+      color: $white;
+      text-decoration: none;
+    }
   }
 }
