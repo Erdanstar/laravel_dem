@@ -13,7 +13,7 @@
                         <select class="custom-select" id="statuses" name="status_id">
                             <option selected>Выберите ваш статус</option>
                             @foreach ($statuses as $status)
-                            <option value="{{ $status->id }}">{{ $status->title }}</option>
+                                <option value="{{ $status->id }}">{{ $status->title }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -63,13 +63,30 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="birthday" class="col-md-4 col-form-label text-md-right">День рождения</label>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" name="birthday">
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="countries" class="col-md-4 col-form-label text-md-right">Ваш город</label>
                     <div class="col-md-6">
-                        <select class="custom-select" id="countries" name="status_id">
+                        <select class="custom-select" id="countries" name="country_id">
                             <option selected>Выберите ваш город</option>
                             @foreach ($countries as $country)
-                            <option value="{{ $country->id }}">{{ $country->title }}</option>
+                                <option value="{{ $country->id }}">{{ $country->city }}</option>
                             @endforeach
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="sex" class="col-md-4 col-form-label text-md-right">Ваш пол</label>
+                    <div class="col-md-6">
+                        <select class="custom-select" id="sex" name="sex">
+                            <option selected>Выберите ваш пол</option>
+                            <option value="Мужской">Мужской</option>
+                            <option value="Женский">Женский</option>
                         </select>
                     </div>
                 </div>

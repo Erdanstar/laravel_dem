@@ -22,8 +22,17 @@ class CreateUsersTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->date('birthday');
+            $table->string('sex');
             $table->string('avatar')->nullable();
+            $table->string('edu_type')->nullable();
+            $table->string('grade')->nullable();
+            $table->string('course')->nullable();
+            $table->string('profile_grade')->nullable();
+            $table->integer('course_profession')->nullable();
+            $table->integer('preselecion_profession')->nullable();
+            $table->integer('preselecion_university')->nullable();
             $table->integer('status_id')->nullable();
+            $table->integer('city_id')->nullable();
             $table->integer('is_admin')->default(0);
             $table->integer('banned')->default(0);
             $table->integer('profession_id')->nullable();

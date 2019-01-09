@@ -26,6 +26,7 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'admin'], f
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/quiz', 'HomeController@test')->name('quiz');
+Route::get('/specialties', 'HomeController@specialties')->name('specialties');
 
 Route::get('/indev', function (){
     return view('pages.indev');
@@ -37,6 +38,7 @@ Route::group(['middleware'	=>	'auth'], function(){
     Route::post('/quiz/post', 'QuizController@postQuestion')->name('post.quiz');
     Route::get('/quiz/result', 'QuizController@showProfessions')->name('result.quiz.show');
     Route::post('/quiz/result/post', 'QuizController@postResult')->name('result.quiz.post');
+    Route::get('/profile/quiz', 'HomeController@profileQuiz')->name('profile.quiz');
 });
 
 Auth::routes();

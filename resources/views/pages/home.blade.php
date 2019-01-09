@@ -9,6 +9,10 @@
                         <div class="owl-carousel top-slider owl-theme">
                             <div class="item" style="background-image: url('img/slider-1.jpg'); position: relative;">
                                 <a href="/indev">Выбор будущей професии</a>
+                                <p>- это серьезный и отвественный шаг в жизни каждого человека,
+                                    требующий подготовки и знаний, времени на раздумья,
+                                    <br>и не терпящий легкомысленности.
+                                </p>
                             </div>
                             <div class="item" style="background-image: url('img/slider-2.jpg')"></div>
                             <div class="item" style="background-image: url('img/slider-3.jpg')"></div>
@@ -411,10 +415,7 @@
                     </div>
 
                     <div class="video">
-                        <iframe width="100%" height="447" src="https://www.youtube.com/embed/LNjLq5TMi8k"
-                                frameborder="0"
-                                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                allowfullscreen></iframe>
+                        <video src="{{ asset('img/profon-video.mp4') }}" poster="{{ asset('img/poster-video.png') }}" height="447" width="787" controls></video>
                     </div>
                     <div class="tabs">
                         <ul class="nav nav-tabs" id="myTab" role="tablist">

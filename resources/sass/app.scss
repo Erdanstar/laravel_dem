@@ -28,31 +28,39 @@ body{
 .form-control{
   color: #e1e1e1;
   font-family: $default-family;
-  font-size: 20px;
+  font-size: 16px;
   &:focus{
     box-shadow: 0 0 0 2px #56cbc7;
     color: #8e8c8c;
   }
 }
+main{
+  margin-top: 20px;
+}
 .btn-primary{
-  padding: 14px 30px;
+  width: 100%;
+  padding: 16px 56px;
   font-size: 18px;
   color: $white;
   text-transform: uppercase;
   font-weight: 300;
+  text-decoration: none;
+  text-align: center;
   font-family: $default-family;
-  background-color: $button;
+  background-color: $purple;
   border: none;
+  transition: all .3s ease;
   &:hover{
-    background-color: darken($button, 5%);
+    background-color: darken($purple, 5%);
+    box-shadow: 0 6px 16px 0 rgba(0,0,0,.2);
   }
   &:focus{
     box-shadow: none;
-    background-color: lighten($button, 5%);
+    background-color: lighten($purple, 5%);
   }
   &:active{
     box-shadow: none !important;
-    background-color: lighten($button, 5%) !important;
+    background-color: lighten($purple, 5%) !important;
   }
 }
 .btn-outline{
@@ -95,6 +103,19 @@ body{
   &:hover{
     background-color: $white;
     color: $text-dark;
+  }
+}
+.btn-round{
+  background-color: #5ea6ed;
+  border-radius: 10px;
+  color: $white;
+  width: 100%;
+  padding: 10px 20px;
+  border: 3px solid transparent;
+  transition: all .3s ease;
+  &:hover{
+    background-color: transparent;
+    border: 3px solid #5ea6ed;
   }
 }
 .indev{

@@ -21,6 +21,15 @@
           background-color: darken(#C92036, 5%);
         }
       }
+      p{
+        position: absolute;
+        bottom: 0;
+        left: 100px;
+        color: $white;
+        width: 75%;
+        text-shadow: 2px 2px $text-dark;
+        font-size: 25px;
+      }
     }
 }
 .owl-carousel {
@@ -297,7 +306,6 @@
                 max-width: 100px;
                 float: left;
                 clear: both;
-                border-radius: 50%;
               }
             }
 

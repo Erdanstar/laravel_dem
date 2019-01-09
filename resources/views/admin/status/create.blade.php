@@ -29,6 +29,10 @@
                         <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Название" name="title" value="{{old('title')}}">
                     </div>
                     <div class="form-group">
+                        <label for="exampleInputEmail1">Описание</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Описание" name="description" value="{{old('description')}}">
+                    </div>
+                    <div class="form-group">
                       <label>Test</label>
                       {{Form::select('quiz_id',
                       	$quizzes,

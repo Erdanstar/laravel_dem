@@ -1,88 +1,199 @@
 //-------------------- FIRST PAGE -------------------------//
-.quiz-items{
-  padding-top: 40px;
-  .quiz-item{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    &-link{
-      padding-top: 10px;
-      font-size: 20px;
-      font-family: $default-family;
-      color: $active;
-      text-decoration: none;
+.quiz-items {
+    padding-top: 40px;
+
+    .quiz-item {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        &-link {
+            padding-top: 10px;
+            font-size: 20px;
+            font-family: $default-family;
+            color: $active;
+            text-decoration: none;
+        }
     }
-  }
 }
+
 //-------------------- END FIRST PAGE -------------------------//
 
-.skill{
-  margin-top: 40px;
-  &-title{
-    margin-bottom: 48px;
-  }
-  .btn.btn-default{
-    padding: 14px 30px;
-    font-size: 18px;
-    color: $white;
-    text-transform: uppercase;
-    font-weight: 300;
-    font-family: $default-family;
-    background-color: $active;
-    border: none;
-    &:hover{
-      background-color: darken($active, 5%);
+.skill {
+    margin-top: 40px;
+
+    &-title {
+        margin-bottom: 48px;
     }
-    &:focus{
-      box-shadow: none;
-      background-color: lighten($active, 5%);
-    }
-    &:active{
-      box-shadow: none !important;
-      background-color: lighten($active, 5%) !important;
-    }
-  }
-  &-radio{
-    background-color: $white;
-    margin-bottom: 12px;
-    padding: 21px 30px;
-    display: flex;
-    align-items: center;
-    border-radius: 4px;
-    box-shadow: 0 2px 4px 0 rgba(0,0,0,.06);
-    &:hover{
-      cursor: pointer;
-      label{
-        cursor: pointer;
-        i{
-          cursor: pointer;
-          color: $active;
+
+    .btn.btn-default {
+        padding: 14px 30px;
+        font-size: 18px;
+        color: $white;
+        text-transform: uppercase;
+        font-weight: 300;
+        font-family: $default-family;
+        background-color: $active;
+        border: none;
+
+        &:hover {
+            background-color: darken($active, 5%);
         }
-      }
+
+        &:focus {
+            box-shadow: none;
+            background-color: lighten($active, 5%);
+        }
+
+        &:active {
+            box-shadow: none !important;
+            background-color: lighten($active, 5%) !important;
+        }
     }
-    label{
-      margin-bottom: 0;
-      i{
-        margin-right: 5px;
-      }
+
+    &-radio {
+        background-color: $white;
+        margin-bottom: 12px;
+        padding: 21px 30px;
+        display: flex;
+        align-items: center;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px 0 rgba(0, 0, 0, .06);
+
+        &:hover {
+            cursor: pointer;
+
+            label {
+                cursor: pointer;
+
+                i {
+                    cursor: pointer;
+                    color: $active;
+                }
+            }
+        }
+
+        label {
+            margin-bottom: 0;
+
+            i {
+                margin-right: 5px;
+            }
+        }
+
+        label input[type="radio"]~i.far.fa-circle {
+            display: inline;
+        }
+
+        label input[type="radio"] {
+            display: none;
+        }
+
+        label input[type="radio"]~i.fas.fa-check-circle {
+            display: none;
+        }
+
+        label input[type="radio"]:checked~i.far.fa-circle {
+            display: none;
+        }
+
+        label input[type="radio"]:checked~i.fas.fa-check-circle {
+            color: $active;
+            display: inline;
+        }
     }
-    label input[type="radio"] ~ i.far.fa-circle{
-        display: inline;
+}
+
+.quiz {
+    &-training {
+        padding: 17px 13px 14px 22px;
+        margin-top: 33px;
+        background-color: $white;
+        text-align: right;
+        margin-bottom: 45px;
+
+        p {
+            color: $description;
+            font-size: 14px;
+            text-align: left;
+        }
+
+        &-link {
+            color: $description;
+            font-size: 16px;
+            font-weight: 400;
+            &:hover{
+              color: $description;
+            }
+        }
     }
-    label input[type="radio"]{
-      display: none;
+
+    &-psicholog{
+      height: 230px;
+      margin-top: 33px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      
     }
-    label input[type="radio"] ~ i.fas.fa-check-circle{
-        display: none;
+
+    &-header {
+        margin-bottom: 45px;
+
+        h1 {
+            color: #ff6803;
+            font-size: 20px;
+            font-weight: 400;
+        }
+
+        h5 {
+            color: $description;
+            font-size: 13px;
+            font-weight: 400;
+        }
     }
-    label input[type="radio"]:checked ~ i.far.fa-circle{
-        display: none;
+
+    &-card {
+        &-title {
+            height: 192px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                bottom: 0;
+                right: 0;
+                left: 0;
+                background-color: #008fcf;
+                opacity: 0.58;
+            }
+
+            p {
+                position: absolute;
+                top: 42px;
+                right: 25px;
+                left: 25px;
+                text-align: center;
+                color: $white;
+                font-size: 18px;
+            }
+        }
+
+        &-desc {
+            background-color: $white;
+            padding: 30px 15px 10px;
+        }
+
+        &-description {
+            color: $description;
+            font-size: 13px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
     }
-    label input[type="radio"]:checked ~ i.fas.fa-check-circle{
-        color: $active;
-        display: inline;
-    }
-  }
 }

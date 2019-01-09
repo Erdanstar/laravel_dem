@@ -16,11 +16,12 @@ class CreateQuizResultsTable extends Migration
         Schema::create('quiz_results', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('quiz_id')->unsigned();
             $table->integer('orentation_id')->unsigned();
             $table->integer('profession_id')->unsigned();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            
+            $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
             $table->foreign('orentation_id')->references('id')->on('orentations')->onDelete('cascade');
             $table->foreign('profession_id')->references('id')->on('professions')->onDelete('cascade');
         });

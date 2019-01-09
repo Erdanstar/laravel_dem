@@ -14,6 +14,7 @@ use App\QuizResult;
 use App\Orentation;
 use App\QuizQuestionOption;
 use App\SessionResult;
+use App\Specialty;
 use Session;
 
 class HomeController extends Controller
@@ -50,6 +51,17 @@ class HomeController extends Controller
     {
       $quizzes = Quiz::all();
       return view('quiz.index', ['quizzes'=>$quizzes]);
+    }
+
+    public function specialties()
+    {
+      $specialties = Specialty::all();
+      return view('pages.specialties', ['specialties'=>$specialties]);
+    }
+
+    public function profileQuiz()
+    {
+      return view('profile.quiz');
     }
     
 

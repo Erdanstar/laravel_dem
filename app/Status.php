@@ -7,7 +7,7 @@ use App\Quiz;
 
 class Status extends Model
 {
-    protected $fillable = ['title', 'quiz_id'];
+    protected $fillable = ['title', 'description', 'quiz_id'];
 
     public function quiz()
     {

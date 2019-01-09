@@ -59,7 +59,6 @@
   background-color: #fff;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.04);
   height: 72px;
-  margin-bottom: 14px;
 }
 
 .main-nav {
@@ -266,6 +265,16 @@
 
 .slider .item a:hover {
   background-color: #b31c30;
+}
+
+.slider .item p {
+  position: absolute;
+  bottom: 0;
+  left: 100px;
+  color: #ffffff;
+  width: 75%;
+  text-shadow: 2px 2px #656565;
+  font-size: 25px;
 }
 
 .owl-carousel {
@@ -551,7 +560,6 @@
   max-width: 100px;
   float: left;
   clear: both;
-  border-radius: 50%;
 }
 
 .news-body .news-item-content {
@@ -794,13 +802,6 @@
 }
 
 .form-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
-}
-
-.form-wrapper form {
   background-color: #ffffff;
   padding: 40px 30px;
   width: 100%;
@@ -811,23 +812,24 @@
   margin-bottom: 45px;
 }
 
+.form-wrapper form .form-group {
+  position: relative;
+}
+
+.form-wrapper form .form-group svg {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
 .form-wrapper form input.form-control {
   margin: 0;
   margin-bottom: 20px;
+  padding-left: 40px;
 }
 
 .form-wrapper form .form-check-label {
   margin-bottom: 20px;
-}
-
-.form-wrapper form .buttons {
-  display: flex;
-  margin-bottom: 8px;
-}
-
-.form-wrapper form .buttons .btn-primary {
-  margin-right: 14px;
-  width: 100%;
 }
 
 .form-wrapper form .btn-link {
@@ -944,6 +946,100 @@
   display: inline;
 }
 
+.quiz-training {
+  padding: 17px 13px 14px 22px;
+  margin-top: 33px;
+  background-color: #ffffff;
+  text-align: right;
+  margin-bottom: 45px;
+}
+
+.quiz-training p {
+  color: #707070;
+  font-size: 14px;
+  text-align: left;
+}
+
+.quiz-training-link {
+  color: #707070;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.quiz-training-link:hover {
+  color: #707070;
+}
+
+.quiz-psicholog {
+  height: 230px;
+  margin-top: 33px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.quiz-header {
+  margin-bottom: 45px;
+}
+
+.quiz-header h1 {
+  color: #ff6803;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.quiz-header h5 {
+  color: #707070;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+.quiz-card-title {
+  height: 192px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.quiz-card-title::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: #008fcf;
+  opacity: 0.58;
+}
+
+.quiz-card-title p {
+  position: absolute;
+  top: 42px;
+  right: 25px;
+  left: 25px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 18px;
+}
+
+.quiz-card-desc {
+  background-color: #ffffff;
+  padding: 30px 15px 10px;
+}
+
+.quiz-card-description {
+  color: #707070;
+  font-size: 13px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-top-img {
+  height: 155px;
+  background-position: bottom;
+  background-size: cover;
+}
+
 .profile-sidebar-user {
   background-color: #fff;
   padding: 20px;
@@ -956,7 +1052,7 @@
   height: auto;
   border-radius: 50%;
   border: 1px #e9eef2 solid;
-  margin-right: 10px;
+  margin-right: 16px;
 }
 
 .profile-sidebar-user-avatar img {
@@ -984,8 +1080,7 @@
   text-decoration: none;
   width: 100%;
   padding: 5px;
-  text-align: center;
-  font-size: 17px;
+  font-size: 15px;
   font-family: "Roboto", sans-serif;
   color: #949495;
 }
@@ -994,6 +1089,57 @@
   text-decoration: none;
   background-color: #e9eef2;
   color: #57CACA;
+}
+
+.profile-main-top {
+  height: 110px;
+  background-color: #0c3b4a;
+}
+
+.profile-main-top ul {
+  list-style: none;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: space-around;
+  padding-left: 0;
+}
+
+.profile-main-top ul li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-main-top ul li img {
+  width: 30px;
+  height: auto;
+}
+
+.profile-main-top ul li a {
+  font-size: 14px;
+  color: #ffffff;
+}
+
+.profile-main-information {
+  background-color: #ffffff;
+  padding: 50px 40px;
+  height: 730px;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 35px;
+}
+
+.profile-main-information .preselection {
+  margin-bottom: -16px;
+}
+
+.profile-main-information .col-md-8 p {
+  color: #656565;
+}
+
+.profile-main-information .col-md-4 p {
+  color: #949495;
 }
 
 /*!
@@ -1006,7 +1152,7 @@
 :root {
   --blue: #3490dc;
   --indigo: #6574cd;
-  --purple: #9561e2;
+  --purple: #6039aa;
   --pink: #f66D9b;
   --red: #e3342f;
   --orange: #f6993f;
@@ -11496,7 +11642,7 @@ body {
 .form-control {
   color: #e1e1e1;
   font-family: "Roboto", sans-serif;
-  font-size: 20px;
+  font-size: 16px;
 }
 
 .form-control:focus {
@@ -11504,29 +11650,38 @@ body {
   color: #8e8c8c;
 }
 
+main {
+  margin-top: 20px;
+}
+
 .btn-primary {
-  padding: 14px 30px;
+  width: 100%;
+  padding: 16px 56px;
   font-size: 18px;
   color: #ffffff;
   text-transform: uppercase;
   font-weight: 300;
+  text-decoration: none;
+  text-align: center;
   font-family: "Roboto", sans-serif;
-  background-color: #ed5f5e;
+  background-color: #6039aa;
   border: none;
+  transition: all 0.3s ease;
 }
 
 .btn-primary:hover {
-  background-color: #ea4847;
+  background-color: #553397;
+  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
 .btn-primary:focus {
   box-shadow: none;
-  background-color: #f07675;
+  background-color: #6b3fbd;
 }
 
 .btn-primary:active {
   box-shadow: none !important;
-  background-color: #f07675 !important;
+  background-color: #6b3fbd !important;
 }
 
 .btn-outline {
@@ -11575,6 +11730,21 @@ body {
 .btn-outline-white:hover {
   background-color: #ffffff;
   color: #656565;
+}
+
+.btn-round {
+  background-color: #5ea6ed;
+  border-radius: 10px;
+  color: #ffffff;
+  width: 100%;
+  padding: 10px 20px;
+  border: 3px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-round:hover {
+  background-color: transparent;
+  border: 3px solid #5ea6ed;
 }
 
 .indev {

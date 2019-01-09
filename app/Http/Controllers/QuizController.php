@@ -111,7 +111,9 @@ class QuizController extends Controller
     {
         QuizResult::create([
             'user_id' => Auth::user()->id,
-            'orentation_id' => $request->profession
+            'orentation_id' => $request->orentation,
+            'quiz_id' => $request->quiz,
+            'profession_id' => $request->profession
         ]);
         Session::flush();
         Session::regenerate();

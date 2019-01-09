@@ -8,6 +8,8 @@
                 @csrf
                 @foreach($professions as $profession)
                     <div class="form-check col-md-12">
+                        <input type="hidden" value="{{ $orentation->id }}" name="orentation">
+                        <input type="hidden" value="{{ $orentation->quiz->id }}" name="quiz">
                         <input class="form-check-input" type="radio" name="profession" id="professions{{$profession->id}}" value="{{ $profession->id }}">
                         <label class="form-check-label" for="professions{{$profession->id}}">
                             {{ $profession->title }}

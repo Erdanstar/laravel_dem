@@ -1,18 +1,56 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row d-flex justify-content-center">
-        @foreach ($quizzes as $quiz)
-          <div class="col-md-4">
-            <div class="quiz-items">
-              <div class="quiz-item">
-                <img src="{{$quiz->getImage()}}" alt="{{$quiz->title}}" width="154" height="154">
-                <a class="quiz-item-link" href="{{url($quiz->getQuestionLimit($quiz->id))}}">{{$quiz->title}}</a>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="quiz-header">
+                    <h1>Профориентация: важность правильных решений</h1>
+                    <h5>Выбор профессии – очень важное решение. Оно влияет не только будущее материальное благополучие
+                        человека и его профессиональную успешность, но и на самооценку,
+                        психологический комфорт и, даже на то, будет ли он ощущать себя счастливым.</h5>
+                    <h5>Чтобы выбор профессии не стал ошибочным, психологи рекомендуют пройти тест на профориентацию. Это
+                        помогает определить профессиональные склонности,
+                        способности и личностные особенности человека. Проходить такой тест нужно регулярно, начиная с
+                        подросткового возраста (с 13-14 лет), поскольку часто бывает,
+                        что предпочтения и интересы людей меняются под влиянием множества факторов. У школьников
+                        представление о будущей профессии часто носит фантазийный,
+                        романтический характер, формируюсь посредством кинофильмов и книг, не имеющих отношения к
+                        реальности. Поэтому существует множество тестов разной степени сложности,
+                        призванных помочь юным сделать правильный выбор профессии.</h5>
+                </div>
+            </div>
+            <div class="col-md-12">
+              <div class="row">
+                  @foreach ($quizzes as $quiz)
+                  <div class="quiz-card col-md-3">
+                      <div class="quiz-card-title" style="background-image: url({{ $quiz->getImage() }})">
+                          <p>{{ $quiz->title }}</p>
+                      </div>
+                      <div class="quiz-card-desc">
+                          <div class="quiz-card-description">{{ $quiz->description }}</div>
+                          <a href="/quiz/{{ $quiz->slug }}/{{ $quiz->questions->first()->id }}" class="quiz-card-link btn btn-round">Пройти
+                              тест</a>
+                      </div>
+                  </div>
+                  @endforeach
               </div>
             </div>
-          </div>
-        @endforeach
+            <div class="col-md-6 pr-0">
+                <div class="quiz-training">
+                    <p>Наш тренинг — это помощь в определении подросткам своего места в профессиональном мире. Он создан
+                        для того, чтобы еще на один шаг ввести школьников в мир профессий, дать информацию для дальнейшего
+                        выбора, возможно, заинтересовать той или иной областью профессий и подвести учащихся к взвешенному,
+                        самостоятельному выбору профессиональной деятельности, сформировать психологическую готовность к
+                        профессиональному самоопределению.</p>
+                    <a href="#" class="quiz-training-link">Подать заявку</a>
+                </div>
+            </div>
+            <div class="col-md-6 pl-0">
+              <div class="quiz-psicholog" style="background-image: url({{ asset('img/psicholog.gif') }})"></div>
+            </div>
+        </div>
     </div>
-</div>
+</main>
 @endsection

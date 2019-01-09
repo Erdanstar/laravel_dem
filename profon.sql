@@ -1,118 +1,54 @@
--- phpMyAdmin SQL Dump
--- version 4.4.15.7
--- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Ноя 27 2018 г., 07:59
--- Версия сервера: 5.5.50
--- Версия PHP: 5.3.29
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
-
+-- Дамп данных таблицы `profession_categories`
 --
--- База данных: `profon`
---
+
+INSERT INTO `profession_categories` (`id`, `title`, `image`, `created_at`, `updated_at`) VALUES
+(1, 'Медицина', 'medical.jpg', NULL, NULL),
+(2, 'Информационные технологии ', 'information.jpg', NULL, NULL),
+(3, 'Дизайн и прикладное искусство', 'dizain.jpg', NULL, NULL),
+(4, 'Искусство (музыка, театр, кино, изобразительное искусство)', 'iskustvo.jpg', NULL, NULL),
+(5, 'Инженерное дело', 'injener.jpg', NULL, NULL),
+(6, 'Транспорт, авиация, автобизнес', 'transport.jpg', NULL, NULL),
+(7, 'Менеджмент (управление)', 'menejment.jpg', NULL, NULL),
+(8, 'СМИ, издательство, полиграфия', 'smi.jpg', NULL, NULL),
+(9, 'Наука', 'nauka.jpg', NULL, NULL),
+(10, 'Маркетинг, реклама и PR', 'marketing.jpg', NULL, NULL),
+(11, 'Финансы, бухгалтерия', 'finansi.jpg', NULL, NULL),
+(12, 'Юриспруденция', 'iurisprudencia.jpg', NULL, NULL),
+(13, 'Педагогика и психология', 'pedagogika.jpg', NULL, NULL),
+(14, 'Строительство и архитектура', 'stroitelstvo.jpg', NULL, NULL),
+(15, 'Кулинария, пищевая промышленность', 'kulinaria.jpg', NULL, NULL),
+(16, 'Геология', 'geologia.jpg', NULL, NULL),
+(17, 'Сервис и туризм', 'servise.jpg', NULL, NULL),
+(18, 'Ветеринария, работа с животными', 'veterinaria.jpg', NULL, NULL),
+(19, 'Мода и красота', 'moda.jpg', NULL, NULL),
+(20, 'Торговля', 'torgovlia.jpg', NULL, NULL),
+(21, 'Спорт и фитнес', 'sport.jpg', NULL, NULL),
+(22, 'Лёгкая промышленность', 'legkaia.jpg', NULL, NULL),
+(23, 'Силовые структуры', 'silovie.jpg', NULL, NULL),
+(24, 'Секретариат, делопроизводство, АХО', 'sekretariat.jpg', NULL, NULL),
+(25, 'Тяжёлая промышленность', 'tiajelaia.jpg', NULL, NULL),
+(26, 'Младший персонал', 'mladshi.jpg', NULL, NULL),
+(27, 'Лингвистика, коммуникации', 'lingvistika.jpg', NULL, NULL),
+(28, 'Шоу-бизнес', 'show.jpg', NULL, NULL),
+(29, 'Логистика, склад, ВЭД', 'logistika.jpg', NULL, NULL),
+(30, 'Политика', 'politika.jpg', NULL, NULL),
+(31, 'Растениеводство', 'rastenievodstvo.jpg', NULL, NULL),
+(32, 'Недвижимость', 'nedvijimost.jpg', NULL, NULL),
+(33, 'Религия', 'religia.jpg', NULL, NULL),
+(34, 'Добыча полезных ископаемых', 'dobicha.jpg', NULL, NULL),
+(35, 'Экология', 'itkologia.jpg', NULL, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `answers`
+-- Дамп данных таблицы `quizzes`
 --
 
-CREATE TABLE IF NOT EXISTS `answers` (
-  `id` int(10) unsigned NOT NULL,
-  `answer` text COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(11) NOT NULL DEFAULT '1',
-  `question_id` int(11) NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+INSERT INTO `quizzes` (`title`, `description`, `slug`, `image`, `created_at`, `updated_at`) VALUES
+('Тестовая система для школьников 9-11 классов, выпускников, абитуриентов', 'Тестовый комплект предназначен для комплексной диагностики профессиональной направленности старшеклассников, выпускников и абитуриентов, с учетом оценки склонностей, способностей, мотивации, объективных показателей успеваемости и медицинских противопоказаний к выбору в ряде профессий.', 'test-dlya-vzroslyh', 'zsebraT8gJ.jpg', '2018-11-22 23:15:28', '2019-01-03 07:40:19');
 
 -- --------------------------------------------------------
-
---
--- Структура таблицы `comments`
---
-
-CREATE TABLE IF NOT EXISTS `comments` (
-  `id` int(10) unsigned NOT NULL,
-  `comment` text COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(10) unsigned DEFAULT NULL,
-  `post_id` int(11) DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `countries`
---
-
-CREATE TABLE IF NOT EXISTS `countries` (
-  `id` int(10) unsigned NOT NULL,
-  `region` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `city` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `migrations`
---
-
-CREATE TABLE IF NOT EXISTS `migrations` (
-  `id` int(10) unsigned NOT NULL,
-  `migration` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `batch` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Дамп данных таблицы `migrations`
---
-
-INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
-(55, '2014_10_12_000000_create_users_table', 1),
-(56, '2014_10_12_100000_create_password_resets_table', 1),
-(57, '2018_11_12_053238_create_posts_table', 1),
-(58, '2018_11_12_060033_create_countries_table', 1),
-(59, '2018_11_12_060053_create_questions_table', 1),
-(60, '2018_11_12_060126_create_answers_table', 1),
-(61, '2018_11_12_060146_create_comments_table', 1),
-(62, '2018_11_12_060400_create_sentences_table', 1),
-(63, '2018_11_12_060415_create_others_table', 1),
-(64, '2018_11_15_134232_create_quizzes_table', 1),
-(65, '2018_11_15_134315_create_orentations_table', 1),
-(66, '2018_11_15_134330_create_statuses_table', 1),
-(67, '2018_11_15_134354_create_quiz_questions_table', 1),
-(68, '2018_11_15_134406_create_quiz_question_options_table', 1),
-(69, '2018_11_15_134429_create_quiz_correct_options_table', 1),
-(70, '2018_11_19_035056_create_profession_categories_table', 1),
-(71, '2018_11_20_064925_create_professions_table', 1),
-(72, '2018_11_22_073159_create_quiz_results_table', 1);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `orentations`
---
-
-CREATE TABLE IF NOT EXISTS `orentations` (
-  `id` int(10) unsigned NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `quiz_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `orentations`
@@ -126,65 +62,6 @@ INSERT INTO `orentations` (`id`, `title`, `quiz_id`, `created_at`, `updated_at`)
 (5, 'Человек – художественный образ', 1, '2018-11-24 01:56:29', '2018-11-24 01:56:29');
 
 -- --------------------------------------------------------
-
---
--- Структура таблицы `others`
---
-
-CREATE TABLE IF NOT EXISTS `others` (
-  `id` int(10) unsigned NOT NULL,
-  `other` text COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(10) unsigned DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `password_resets`
---
-
-CREATE TABLE IF NOT EXISTS `password_resets` (
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `token` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `posts`
---
-
-CREATE TABLE IF NOT EXISTS `posts` (
-  `id` int(10) unsigned NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `content` text COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `views` int(11) NOT NULL DEFAULT '0',
-  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `professions`
---
-
-CREATE TABLE IF NOT EXISTS `professions` (
-  `id` int(10) unsigned NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `description` text COLLATE utf8_unicode_ci NOT NULL,
-  `category_id` int(10) unsigned NOT NULL,
-  `orentation_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=93 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `professions`
@@ -274,170 +151,32 @@ INSERT INTO `professions` (`id`, `title`, `description`, `category_id`, `orentat
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `profession_categories`
---
-
-CREATE TABLE IF NOT EXISTS `profession_categories` (
-  `id` int(10) unsigned NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Дамп данных таблицы `profession_categories`
---
-
-INSERT INTO `profession_categories` (`id`, `title`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Медицина', 'medical.jpg', NULL, NULL),
-(2, 'Информационные технологии ', 'information.jpg', NULL, NULL),
-(3, 'Дизайн и прикладное искусство', 'dizain.jpg', NULL, NULL),
-(4, 'Искусство (музыка, театр, кино, изобразительное искусство)', 'iskustvo.jpg', NULL, NULL),
-(5, 'Инженерное дело', 'injener.jpg', NULL, NULL),
-(6, 'Транспорт, авиация, автобизнес', 'transport.jpg', NULL, NULL),
-(7, 'Менеджмент (управление)', 'menejment.jpg', NULL, NULL),
-(8, 'СМИ, издательство, полиграфия', 'smi.jpg', NULL, NULL),
-(9, 'Наука', 'nauka.jpg', NULL, NULL),
-(10, 'Маркетинг, реклама и PR', 'marketing.jpg', NULL, NULL),
-(11, 'Финансы, бухгалтерия', 'finansi.jpg', NULL, NULL),
-(12, 'Юриспруденция', 'iurisprudencia.jpg', NULL, NULL),
-(13, 'Педагогика и психология', 'pedagogika.jpg', NULL, NULL),
-(14, 'Строительство и архитектура', 'stroitelstvo.jpg', NULL, NULL),
-(15, 'Кулинария, пищевая промышленность', 'kulinaria.jpg', NULL, NULL),
-(16, 'Геология', 'geologia.jpg', NULL, NULL),
-(17, 'Сервис и туризм', 'servise.jpg', NULL, NULL),
-(18, 'Ветеринария, работа с животными', 'veterinaria.jpg', NULL, NULL),
-(19, 'Мода и красота', 'moda.jpg', NULL, NULL),
-(20, 'Торговля', 'torgovlia.jpg', NULL, NULL),
-(21, 'Спорт и фитнес', 'sport.jpg', NULL, NULL),
-(22, 'Лёгкая промышленность', 'legkaia.jpg', NULL, NULL),
-(23, 'Силовые структуры', 'silovie.jpg', NULL, NULL),
-(24, 'Секретариат, делопроизводство, АХО', 'sekretariat.jpg', NULL, NULL),
-(25, 'Тяжёлая промышленность', 'tiajelaia.jpg', NULL, NULL),
-(26, 'Младший персонал', 'mladshi.jpg', NULL, NULL),
-(27, 'Лингвистика, коммуникации', 'lingvistika.jpg', NULL, NULL),
-(28, 'Шоу-бизнес', 'show.jpg', NULL, NULL),
-(29, 'Логистика, склад, ВЭД', 'logistika.jpg', NULL, NULL),
-(30, 'Политика', 'politika.jpg', NULL, NULL),
-(31, 'Растениеводство', 'rastenievodstvo.jpg', NULL, NULL),
-(32, 'Недвижимость', 'nedvijimost.jpg', NULL, NULL),
-(33, 'Религия', 'religia.jpg', NULL, NULL),
-(34, 'Добыча полезных ископаемых', 'dobicha.jpg', NULL, NULL),
-(35, 'Экология', 'itkologia.jpg', NULL, NULL);
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `questions`
---
-
-CREATE TABLE IF NOT EXISTS `questions` (
-  `id` int(10) unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `question` text COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(10) unsigned DEFAULT NULL,
-  `is_answered` int(11) NOT NULL DEFAULT '0',
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `quizzes`
---
-
-CREATE TABLE IF NOT EXISTS `quizzes` (
-  `id` int(10) unsigned NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `slug` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `image` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Дамп данных таблицы `quizzes`
---
-
-INSERT INTO `quizzes` (`id`, `title`, `slug`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Тест для взрослых', 'test-dlya-vzroslyh', 'zsebraT8gJ.jpg', '2018-11-22 23:15:28', '2018-11-22 23:15:28');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `quiz_correct_options`
---
-
-CREATE TABLE IF NOT EXISTS `quiz_correct_options` (
-  `id` int(10) unsigned NOT NULL,
-  `correct` int(11) NOT NULL,
-  `quiz_id` int(10) unsigned NOT NULL,
-  `orentation_id` int(10) unsigned NOT NULL,
-  `question_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Дамп данных таблицы `quiz_correct_options`
---
-
-INSERT INTO `quiz_correct_options` (`id`, `correct`, `quiz_id`, `orentation_id`, `question_id`, `created_at`, `updated_at`) VALUES
-(1, 1, 1, 1, 1, '2018-11-22 23:21:12', '2018-11-22 23:21:12'),
-(2, 6, 1, 1, 3, '2018-11-24 01:57:12', '2018-11-24 01:57:12'),
-(3, 11, 1, 1, 6, '2018-11-24 01:57:41', '2018-11-24 01:57:41'),
-(4, 2, 1, 2, 1, '2018-11-24 01:58:07', '2018-11-24 01:58:07'),
-(5, 7, 1, 2, 4, '2018-11-24 01:58:37', '2018-11-24 01:58:37'),
-(6, 3, 1, 3, 2, '2018-11-24 01:59:24', '2018-11-24 01:59:24'),
-(7, 8, 1, 3, 4, '2018-11-24 02:00:05', '2018-11-24 02:00:05'),
-(8, 12, 1, 3, 6, '2018-11-24 02:00:17', '2018-11-24 02:00:17'),
-(9, 4, 1, 4, 2, '2018-11-24 02:01:13', '2018-11-24 02:01:13'),
-(10, 9, 1, 4, 5, '2018-11-24 02:01:50', '2018-11-24 02:01:50'),
-(11, 5, 1, 5, 3, '2018-11-24 02:02:25', '2018-11-24 02:02:25'),
-(12, 10, 1, 5, 5, '2018-11-24 02:02:40', '2018-11-24 02:02:40');
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `quiz_questions`
---
-
-CREATE TABLE IF NOT EXISTS `quiz_questions` (
-  `id` int(10) unsigned NOT NULL,
-  `question_text` text COLLATE utf8_unicode_ci NOT NULL,
-  `quiz_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
 -- Дамп данных таблицы `quiz_questions`
 --
 
 INSERT INTO `quiz_questions` (`id`, `question_text`, `quiz_id`, `created_at`, `updated_at`) VALUES
-(1, 'Предположим, что у вас появилась возможность делать то, что вам нравится, какое занятие из двух возможных вы бы предпочли?', 1, '2018-11-22 23:15:51', '2018-11-22 23:15:51'),
-(2, 'Предположим, что у вас появилась возможность делать то, что вам нравится, какое занятие из двух возможных вы бы предпочли?', 1, '2018-11-22 23:16:12', '2018-11-22 23:16:12'),
-(3, 'Предположим, что у вас появилась возможность делать то, что вам нравится, какое занятие из двух возможных вы бы предпочли?', 1, '2018-11-23 00:19:26', '2018-11-23 00:19:26'),
+(1, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2018-11-22 23:15:51', '2018-11-22 23:15:51'),
+(2, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2018-11-22 23:16:12', '2018-11-22 23:16:12'),
+(3, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2018-11-23 00:19:26', '2018-11-23 00:19:26'),
 (4, 'Предположим, что у вас появилась возможность делать то, что вам нравится, какое занятие из двух возможных вы бы предпочли?', 1, '2018-11-24 01:53:23', '2018-11-24 01:53:23'),
-(5, 'Предположим, что у вас появилась возможность делать то, что вам нравится, какое занятие из двух возможных вы бы предпочли?', 1, '2018-11-24 01:53:47', '2018-11-24 01:53:47'),
-(6, 'Предположим, что у вас появилась возможность делать то, что вам нравится, какое занятие из двух возможных вы бы предпочли?', 1, '2018-11-24 01:54:28', '2018-11-24 01:54:28');
+(5, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2018-11-24 01:53:47', '2018-11-24 01:53:47'),
+(6, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2018-11-24 01:54:28', '2018-11-24 01:54:28'),
+(11, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 09:05:39', '2019-01-03 09:05:39'),
+(16, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:43:57', '2019-01-03 10:43:57'),
+(17, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:44:20', '2019-01-03 10:44:20'),
+(18, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:44:39', '2019-01-03 10:44:39'),
+(19, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:45:11', '2019-01-03 10:45:11'),
+(20, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:45:38', '2019-01-03 10:45:38'),
+(21, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:46:03', '2019-01-03 10:46:03'),
+(22, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:46:22', '2019-01-03 10:46:22'),
+(23, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:46:42', '2019-01-03 10:46:42'),
+(24, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:47:17', '2019-01-03 10:47:17'),
+(25, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:47:37', '2019-01-03 10:47:37'),
+(26, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:47:53', '2019-01-03 10:47:53'),
+(27, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:48:11', '2019-01-03 10:48:11'),
+(28, 'Предположим, что после соответствующего обучения вы сможете выполнять любую работу. Однако если бы вам пришлось выбрать только из двух возможностей, что бы вы предпочли?', 1, '2019-01-03 10:48:30', '2019-01-03 10:48:30');
 
 -- --------------------------------------------------------
-
---
--- Структура таблицы `quiz_question_options`
---
-
-CREATE TABLE IF NOT EXISTS `quiz_question_options` (
-  `id` int(10) unsigned NOT NULL,
-  `option_text` text COLLATE utf8_unicode_ci NOT NULL,
-  `question_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Дамп данных таблицы `quiz_question_options`
@@ -455,346 +194,82 @@ INSERT INTO `quiz_question_options` (`id`, `option_text`, `question_id`, `create
 (9, 'Обсуждать научно-популярные книги, статьи.', 5, '2018-11-24 01:53:48', '2018-11-24 01:53:48'),
 (10, 'Обсуждать художественные книги.', 5, '2018-11-24 01:53:49', '2018-11-24 01:53:49'),
 (11, 'Выращивать молодняк животных какой-либо породы.', 6, '2018-11-24 01:54:28', '2018-11-24 01:54:28'),
-(12, 'Тренировать сверстников (или младших) в выполнении каких-либо действий (трудовых, учебных, спортивных).', 6, '2018-11-24 01:54:28', '2018-11-24 01:54:28');
+(12, 'Тренировать сверстников (или младших) в выполнении каких-либо действий (трудовых, учебных, спортивных).', 6, '2018-11-24 01:54:28', '2018-11-24 01:54:28'),
+(21, 'Копировать рисунки, изображения (или настраивать музыкальные инструменты)', 11, '2019-01-03 09:05:39', '2019-01-03 09:05:39'),
+(22, 'Управлять каким-либо грузовым (подъемным или транспортным) средством — подъемным краном, трактором, тепловозом и др.', 11, '2019-01-03 09:05:39', '2019-01-03 09:05:39'),
+(31, 'Сообщать, разъяснять людям, нужные им сведения', 16, '2019-01-03 10:43:57', '2019-01-03 10:43:57'),
+(32, 'Художественно оформлять выставки, витрины (или участвовать в подготовке пьес, концертов)', 16, '2019-01-03 10:43:57', '2019-01-03 10:43:57'),
+(33, 'Ремонтировать вещи, изделия (одежду, технику), жилище', 17, '2019-01-03 10:44:20', '2019-01-03 10:44:20'),
+(34, 'Искать и исправлять ошибки в текстах, таблицах, рисунках', 17, '2019-01-03 10:44:20', '2019-01-03 10:44:20'),
+(35, 'Лечить животных', 18, '2019-01-03 10:44:39', '2019-01-03 10:44:39'),
+(36, 'Выполнять вычисления, расчеты', 18, '2019-01-03 10:44:39', '2019-01-03 10:44:39'),
+(37, 'Выводить новые сорта растений', 19, '2019-01-03 10:45:11', '2019-01-03 10:45:11'),
+(38, 'Конструировать, проектировать новые виды промышленных изделий (машины или одежду, дома, продукты питания и т. п.)', 19, '2019-01-03 10:45:11', '2019-01-03 10:45:11'),
+(39, 'Разбирать споры, ссоры между людьми, убеждать, разъяснять, уточнять, разъяснять, поощрять, наказывать', 20, '2019-01-03 10:45:38', '2019-01-03 10:45:38'),
+(40, 'Разбираться в чертежах, схемах, таблицах (проверять, приводить в порядок)', 20, '2019-01-03 10:45:38', '2019-01-03 10:45:38'),
+(41, 'Наблюдать, изучать работу кружков художественной самодеятельности', 21, '2019-01-03 10:46:03', '2019-01-03 10:46:03'),
+(42, 'Наблюдать, изучать жизнь микробов', 21, '2019-01-03 10:46:03', '2019-01-03 10:46:03'),
+(43, 'Обслуживать, налаживать медицинские приборы, аппараты', 22, '2019-01-03 10:46:22', '2019-01-03 10:46:22'),
+(44, 'Оказывать людям медицинскую помощь при ранениях, ушибах, ожогах и т. п.', 22, '2019-01-03 10:46:22', '2019-01-03 10:46:22'),
+(45, 'Составлять точные описания — отчеты о наблюдаемых явлениях, событиях, измеряемых объектах и др.', 23, '2019-01-03 10:46:42', '2019-01-03 10:46:42'),
+(46, 'Художественно описывать, изображать события (наблюдаемые или представляемые)', 23, '2019-01-03 10:46:42', '2019-01-03 10:46:42'),
+(47, 'Делать лабораторные анализы в больнице', 24, '2019-01-03 10:47:17', '2019-01-03 10:47:17'),
+(48, 'Принимать, осматривать больных, беседовать с ними, назначать лечение', 24, '2019-01-03 10:47:17', '2019-01-03 10:47:17'),
+(49, 'Красить или расписывать стены помещений, поверхность изделий', 25, '2019-01-03 10:47:37', '2019-01-03 10:47:37'),
+(50, 'Осуществлять монтаж здания или сборку машин, приборов', 25, '2019-01-03 10:47:37', '2019-01-03 10:47:37'),
+(51, 'Организовывать культпоходы сверстников или младших (в театры, музеи), экскурсии, туристские походы и т. п.', 26, '2019-01-03 10:47:53', '2019-01-03 10:47:53'),
+(52, 'Играть на сцене, принимать участие в концертах', 26, '2019-01-03 10:47:53', '2019-01-03 10:47:53'),
+(53, 'Изготовлять по чертежам детали (машины, одежду), строить здания', 27, '2019-01-03 10:48:11', '2019-01-03 10:48:11'),
+(54, 'Заниматься черчением, копировать чертежи, карты', 27, '2019-01-03 10:48:11', '2019-01-03 10:48:11'),
+(55, 'Вести борьбу с болезнями растений, с вредителями леса, сада', 28, '2019-01-03 10:48:30', '2019-01-03 10:48:30'),
+(56, 'Работать на клавишных машинах (пишущей машинке, телетайпе, наборной машине и др.)', 28, '2019-01-03 10:48:30', '2019-01-03 10:48:30');
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `quiz_results`
+-- Дамп данных таблицы `quiz_correct_options`
 --
 
-CREATE TABLE IF NOT EXISTS `quiz_results` (
-  `id` int(10) unsigned NOT NULL,
-  `user_id` int(10) unsigned NOT NULL,
-  `orentation_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+INSERT INTO `quiz_correct_options` (`id`, `correct`, `quiz_id`, `orentation_id`, `question_id`, `created_at`, `updated_at`) VALUES
+(1, 1, 1, 1, 1, '2018-11-22 23:21:12', '2018-11-22 23:21:12'),
+(2, 6, 1, 1, 3, '2018-11-24 01:57:12', '2018-11-24 01:57:12'),
+(3, 11, 1, 1, 6, '2018-11-24 01:57:41', '2018-11-24 01:57:41'),
+(4, 2, 1, 2, 1, '2018-11-24 01:58:07', '2018-11-24 01:58:07'),
+(5, 7, 1, 2, 4, '2018-11-24 01:58:37', '2018-11-24 01:58:37'),
+(6, 3, 1, 3, 2, '2018-11-24 01:59:24', '2018-11-24 01:59:24'),
+(7, 8, 1, 3, 4, '2018-11-24 02:00:05', '2018-11-24 02:00:05'),
+(8, 12, 1, 3, 6, '2018-11-24 02:00:17', '2018-11-24 02:00:17'),
+(9, 4, 1, 4, 2, '2018-11-24 02:01:13', '2018-11-24 02:01:13'),
+(10, 9, 1, 4, 5, '2018-11-24 02:01:50', '2018-11-24 02:01:50'),
+(11, 5, 1, 5, 3, '2018-11-24 02:02:25', '2018-11-24 02:02:25'),
+(12, 10, 1, 5, 5, '2018-11-24 02:02:40', '2018-11-24 02:02:40'),
+(13, 35, 1, 1, 18, '2019-01-03 22:27:10', '2019-01-03 22:27:10'),
+(14, 37, 1, 1, 19, '2019-01-03 22:28:48', '2019-01-03 22:28:48'),
+(15, 42, 1, 1, 21, '2019-01-03 22:30:14', '2019-01-03 22:30:14'),
+(16, 47, 1, 1, 24, '2019-01-03 22:30:50', '2019-01-03 22:30:50'),
+(17, 55, 1, 1, 28, '2019-01-03 22:31:17', '2019-01-03 22:31:17'),
+(18, 22, 1, 2, 11, '2019-01-03 22:33:11', '2019-01-03 22:33:11'),
+(19, 33, 1, 2, 17, '2019-01-03 22:33:34', '2019-01-03 22:33:34'),
+(20, 38, 1, 2, 19, '2019-01-03 22:34:40', '2019-01-03 22:34:40'),
+(21, 43, 1, 2, 22, '2019-01-03 22:35:41', '2019-01-03 22:35:41'),
+(22, 50, 1, 2, 25, '2019-01-03 22:36:36', '2019-01-03 22:36:36'),
+(23, 53, 1, 2, 27, '2019-01-03 22:37:00', '2019-01-03 22:37:00'),
+(24, 31, 1, 3, 16, '2019-01-03 22:37:43', '2019-01-03 22:37:43'),
+(25, 39, 1, 3, 20, '2019-01-03 22:38:08', '2019-01-03 22:38:08'),
+(26, 44, 1, 3, 22, '2019-01-03 22:39:06', '2019-01-03 22:39:06'),
+(27, 48, 1, 3, 24, '2019-01-03 22:39:52', '2019-01-03 22:39:52'),
+(28, 51, 1, 3, 26, '2019-01-03 22:40:15', '2019-01-03 22:40:15'),
+(29, 34, 1, 4, 17, '2019-01-03 22:40:54', '2019-01-03 22:40:54'),
+(30, 36, 1, 4, 18, '2019-01-03 22:41:21', '2019-01-03 22:41:21'),
+(31, 40, 1, 4, 20, '2019-01-03 22:42:00', '2019-01-03 22:42:00'),
+(32, 45, 1, 4, 23, '2019-01-03 22:42:43', '2019-01-03 22:42:43'),
+(33, 54, 1, 4, 27, '2019-01-03 22:43:17', '2019-01-03 22:43:17'),
+(34, 56, 1, 4, 28, '2019-01-03 22:43:54', '2019-01-03 22:43:54'),
+(35, 21, 1, 5, 11, '2019-01-03 22:54:42', '2019-01-03 22:54:42'),
+(36, 32, 1, 5, 16, '2019-01-03 22:55:10', '2019-01-03 22:55:10'),
+(37, 41, 1, 5, 21, '2019-01-03 22:55:36', '2019-01-03 22:55:36'),
+(38, 46, 1, 5, 23, '2019-01-03 22:56:07', '2019-01-03 22:56:07'),
+(39, 49, 1, 5, 25, '2019-01-03 22:56:39', '2019-01-03 22:56:39'),
+(40, 52, 1, 5, 26, '2019-01-03 22:57:00', '2019-01-03 22:57:00');
 
 -- --------------------------------------------------------
-
---
--- Структура таблицы `sentences`
---
-
-CREATE TABLE IF NOT EXISTS `sentences` (
-  `id` int(10) unsigned NOT NULL,
-  `sentence` text COLLATE utf8_unicode_ci NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `user_id` int(10) unsigned DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `statuses`
---
-
-CREATE TABLE IF NOT EXISTS `statuses` (
-  `id` int(10) unsigned NOT NULL,
-  `title` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `quiz_id` int(10) unsigned NOT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- --------------------------------------------------------
-
---
--- Структура таблицы `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `id` int(10) unsigned NOT NULL,
-  `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `status` int(11) DEFAULT NULL,
-  `is_admin` int(11) NOT NULL DEFAULT '0',
-  `banned` int(11) NOT NULL DEFAULT '0',
-  `test_count` int(11) DEFAULT NULL,
-  `proffession_id` int(11) DEFAULT NULL,
-  `remember_token` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Дамп данных таблицы `users`
---
-
-INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `status`, `is_admin`, `banned`, `test_count`, `proffession_id`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Admin', 'admin@admin.com', NULL, '$2y$10$MfBY73EZeMzBQVsQYGTAL.X70La6z43QwIllG2RgNK30E.fUk75CO', NULL, 1, 0, NULL, NULL, '', NULL, NULL);
-
---
--- Индексы сохранённых таблиц
---
-
---
--- Индексы таблицы `answers`
---
-ALTER TABLE `answers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `comments`
---
-ALTER TABLE `comments`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `countries`
---
-ALTER TABLE `countries`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `migrations`
---
-ALTER TABLE `migrations`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `orentations`
---
-ALTER TABLE `orentations`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `orentations_quiz_id_foreign` (`quiz_id`);
-
---
--- Индексы таблицы `others`
---
-ALTER TABLE `others`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `password_resets`
---
-ALTER TABLE `password_resets`
-  ADD KEY `password_resets_email_index` (`email`);
-
---
--- Индексы таблицы `posts`
---
-ALTER TABLE `posts`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `professions`
---
-ALTER TABLE `professions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `professions_category_id_foreign` (`category_id`),
-  ADD KEY `professions_orentation_id_foreign` (`orentation_id`);
-
---
--- Индексы таблицы `profession_categories`
---
-ALTER TABLE `profession_categories`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `questions`
---
-ALTER TABLE `questions`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `quizzes`
---
-ALTER TABLE `quizzes`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `quiz_correct_options`
---
-ALTER TABLE `quiz_correct_options`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `quiz_correct_options_quiz_id_foreign` (`quiz_id`),
-  ADD KEY `quiz_correct_options_orentation_id_foreign` (`orentation_id`),
-  ADD KEY `quiz_correct_options_question_id_foreign` (`question_id`);
-
---
--- Индексы таблицы `quiz_questions`
---
-ALTER TABLE `quiz_questions`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `quiz_questions_quiz_id_foreign` (`quiz_id`);
-
---
--- Индексы таблицы `quiz_question_options`
---
-ALTER TABLE `quiz_question_options`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `quiz_question_options_question_id_foreign` (`question_id`);
-
---
--- Индексы таблицы `quiz_results`
---
-ALTER TABLE `quiz_results`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `sentences`
---
-ALTER TABLE `sentences`
-  ADD PRIMARY KEY (`id`);
-
---
--- Индексы таблицы `statuses`
---
-ALTER TABLE `statuses`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `statuses_quiz_id_foreign` (`quiz_id`);
-
---
--- Индексы таблицы `users`
---
-ALTER TABLE `users`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `users_email_unique` (`email`);
-
---
--- AUTO_INCREMENT для сохранённых таблиц
---
-
---
--- AUTO_INCREMENT для таблицы `answers`
---
-ALTER TABLE `answers`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `comments`
---
-ALTER TABLE `comments`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `countries`
---
-ALTER TABLE `countries`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `migrations`
---
-ALTER TABLE `migrations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=73;
---
--- AUTO_INCREMENT для таблицы `orentations`
---
-ALTER TABLE `orentations`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
---
--- AUTO_INCREMENT для таблицы `others`
---
-ALTER TABLE `others`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `posts`
---
-ALTER TABLE `posts`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `professions`
---
-ALTER TABLE `professions`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=93;
---
--- AUTO_INCREMENT для таблицы `profession_categories`
---
-ALTER TABLE `profession_categories`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=38;
---
--- AUTO_INCREMENT для таблицы `questions`
---
-ALTER TABLE `questions`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `quizzes`
---
-ALTER TABLE `quizzes`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- AUTO_INCREMENT для таблицы `quiz_correct_options`
---
-ALTER TABLE `quiz_correct_options`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT для таблицы `quiz_questions`
---
-ALTER TABLE `quiz_questions`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
--- AUTO_INCREMENT для таблицы `quiz_question_options`
---
-ALTER TABLE `quiz_question_options`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
---
--- AUTO_INCREMENT для таблицы `quiz_results`
---
-ALTER TABLE `quiz_results`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `sentences`
---
-ALTER TABLE `sentences`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `statuses`
---
-ALTER TABLE `statuses`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT;
---
--- AUTO_INCREMENT для таблицы `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(10) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
---
--- Ограничения внешнего ключа сохраненных таблиц
---
-
---
--- Ограничения внешнего ключа таблицы `orentations`
---
-ALTER TABLE `orentations`
-  ADD CONSTRAINT `orentations_quiz_id_foreign` FOREIGN KEY (`quiz_id`) REFERENCES `quizzes` (`id`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `professions`
---
-ALTER TABLE `professions`
-  ADD CONSTRAINT `professions_category_id_foreign` FOREIGN KEY (`category_id`) REFERENCES `profession_categories` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `professions_orentation_id_foreign` FOREIGN KEY (`orentation_id`) REFERENCES `orentations` (`id`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `quiz_correct_options`
---
-ALTER TABLE `quiz_correct_options`
-  ADD CONSTRAINT `quiz_correct_options_orentation_id_foreign` FOREIGN KEY (`orentation_id`) REFERENCES `orentations` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `quiz_correct_options_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `quiz_questions` (`id`) ON DELETE CASCADE,
-  ADD CONSTRAINT `quiz_correct_options_quiz_id_foreign` FOREIGN KEY (`quiz_id`) REFERENCES `quizzes` (`id`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `quiz_questions`
---
-ALTER TABLE `quiz_questions`
-  ADD CONSTRAINT `quiz_questions_quiz_id_foreign` FOREIGN KEY (`quiz_id`) REFERENCES `quizzes` (`id`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `quiz_question_options`
---
-ALTER TABLE `quiz_question_options`
-  ADD CONSTRAINT `quiz_question_options_question_id_foreign` FOREIGN KEY (`question_id`) REFERENCES `quiz_questions` (`id`) ON DELETE CASCADE;
-
---
--- Ограничения внешнего ключа таблицы `statuses`
---
-ALTER TABLE `statuses`
-  ADD CONSTRAINT `statuses_quiz_id_foreign` FOREIGN KEY (`quiz_id`) REFERENCES `quizzes` (`id`) ON DELETE CASCADE;
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
