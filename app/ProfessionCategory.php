@@ -11,7 +11,7 @@ class ProfessionCategory extends Model
   {
     if($this->image == null)
     {
-      return '/img/no-image.png';
+      return '/img/university-no-image.png';
     }
 
     return '/img/professions/' . $this->image;

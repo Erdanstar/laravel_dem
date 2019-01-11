@@ -22,6 +22,7 @@ class CreateUniversitiesTable extends Migration
             $table->string('email')->nullable();
             $table->string('site')->nullable();
             $table->string('type');
+            $table->integer('t_c');
             $table->integer('country_id')->unsigned();
             $table->timestamps();
 

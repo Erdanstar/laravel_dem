@@ -26,7 +26,8 @@ Route::group(['prefix'=>'admin', 'namespace'=>'Admin', 'middleware'=>'admin'], f
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/quiz', 'HomeController@test')->name('quiz');
-Route::get('/specialties', 'HomeController@specialties')->name('specialties');
+Route::get('/professions', 'HomeController@professions')->name('professions');
+Route::get('/educations', 'HomeController@educations');
 
 Route::get('/indev', function (){
     return view('pages.indev');

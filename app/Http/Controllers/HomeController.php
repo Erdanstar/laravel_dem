@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Input;
 use Auth;
 use App\QuizCorrectOption;
 use App\Profession;
+use App\ProfessionCategory;
 use App\Quiz;
 use App\Post;
 use App\Country;
@@ -15,6 +17,7 @@ use App\Orentation;
 use App\QuizQuestionOption;
 use App\SessionResult;
 use App\Specialty;
+use App\University;
 use Session;
 
 class HomeController extends Controller
@@ -53,10 +56,42 @@ class HomeController extends Controller
       return view('quiz.index', ['quizzes'=>$quizzes]);
     }
 
-    public function specialties()
+    public function professions()
     {
-      $specialties = Specialty::all();
-      return view('pages.specialties', ['specialties'=>$specialties]);
+      $profession_categories = ProfessionCategory::all();
+      return view('pages.professions', ['profession_categories'=>$profession_categories]);
+    }
+
+    public function educations()
+    {
+      if(Input::has('type')){
+        $type = Input::get('type');
+        if(Input::has('country')){
+          $country = Input::get('country');
+          $universities = University::where('t_c', $type)->where('country_id', $country)->get();
+          $ctry = Country::where('id', $country)->first();
+        } else {
+          $universities = University::where('t_c', $type)->get();
+          $ctry = null;
+        }
+      } else {
+        if(Input::has('country')){
+          $country = Input::get('country');
+          $universities = University::where('country_id', $country)->get();
+          $ctry = Country::where('id', $country)->first();
+        } else {
+          $universities = University::all();
+          $ctry = null;
+        }
+        $type = null;
+      }
+      $countries = Country::all();
+      return view('pages.educations', [
+        'universities'=>$universities,
+        'countries' => $countries,
+        'type' => $type,
+        'ctry' => $ctry
+      ]);
     }
 
     public function profileQuiz()
