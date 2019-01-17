@@ -24,6 +24,7 @@ class CreateUniversitiesTable extends Migration
             $table->string('type');
             $table->integer('t_c');
             $table->integer('country_id')->unsigned();
+            $table->integer('lang_id');
             $table->timestamps();
 
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');

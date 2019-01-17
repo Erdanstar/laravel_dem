@@ -13,7 +13,7 @@ use Cviebrock\EloquentSluggable\Sluggable;
 class Quiz extends Model
 {
   use Sluggable;
-  protected $fillable = ['title', 'image'];
+  protected $fillable = ['title', 'image', 'description'];
 
   public function questions()
   {
@@ -32,6 +32,15 @@ class Quiz extends Model
   public function correct()
   {
     return $this->hasMany(QuizCorrectOption::class);
+  }
+
+  public function getLink($local)
+  {
+    if($this->questions->count() == 0){
+      return '/'.$local.'/indev';
+    } else{
+      return $local.'/quiz/'.$this->slug.'/'.$this->questions->first()->id;
+    }
   }
 
   public function sluggable()
@@ -103,6 +112,9 @@ class Quiz extends Model
     $this->delete();
   }
 
-
+  public function language()
+  {
+      return $this->belongsTo(Language::class, 'lang_id');
+  }
 
 }

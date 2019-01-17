@@ -20,6 +20,7 @@ class CreatePostsTable extends Migration
             $table->string('image')->nullable();
             $table->integer('views')->default(0);
             $table->string('slug');
+            $table->integer('lang_id');
             $table->timestamps();
         });
     }

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\QuizQuestion;
 use App\QuizQuestionOption;
+use App\Language;
+
 
 class QuizOptionsController extends Controller
 {
@@ -14,9 +16,11 @@ class QuizOptionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($local)
     {
-      $options = QuizQuestionOption::all();
+      app()->setLocale($local);
+      $language = Language::where('code', $local)->first();
+      $options = QuizQuestionOption::all()->where('lang_id', $language->id);
       return view('admin.quiz.questionOptions.index', compact(
         'options'
       ));

@@ -22,4 +22,9 @@ class University extends Model
     	return '/uploads/universities/' . $this->logo;
 
     }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'lang_id');
+    }
 }

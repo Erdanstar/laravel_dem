@@ -39,4 +39,8 @@ class Status extends Model
       $this->delete();
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'lang_id');
+    }
 }

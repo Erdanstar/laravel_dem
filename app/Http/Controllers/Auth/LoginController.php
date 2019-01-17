@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use App\Language;
 
 class LoginController extends Controller
 {
@@ -34,6 +35,14 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
-    }
+				$this->middleware('guest')->except('logout');
+		}
+		
+		public function showLoginForm($local){
+			$lgs = Language::all();
+			$lg = Language::where('code', $local)->first();
+			$currentUrl = 'login';
+
+			return view('auth.login', ['lgs' => $lgs, 'lg' => $lg, 'curl' => $currentUrl]);
+		}
 }

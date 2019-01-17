@@ -16,4 +16,9 @@ class Profession extends Model
     {
       return $this->belongsTo(Orentation::class);
     }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'lang_id');
+    }
 }

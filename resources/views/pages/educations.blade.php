@@ -2,7 +2,13 @@
 @section('content')
 <div class="container">
     <div class="row">
-        <div class="col-md-12 educations-top" style="background-image: url({{ asset('img/educations-top.jpg') }})"></div>
+        <div class="col-md-12 educations-top" style="background-image: url({{ asset('img/educations-top.jpg') }})">
+            <a href="{{ asset('documents/klassificator.pdf') }}">
+                <p>Классификатор специальностей 
+                        высшего и послевузовского образования 
+                        Республики Казахстан</p>
+            </a>
+        </div>
         <div class="col-md-3 pl-0">
             <div class="search edu">
                 <form class="form-inline">
@@ -16,17 +22,17 @@
                 </div>
                 <div class="regions-sidebar-region">
                     @if($type == null)
-                    <a href="/educations">Все</a>
+                    <a href="/{{ app()->getLocale() }}/educations">Все</a>
                     @else
-                    <a href="/educations?type={{ $type }}">Все</a>
+                    <a href="/{{ app()->getLocale() }}/educations?type={{ $type }}">Все</a>
                     @endif
                     @foreach ($countries as $country)
                         <div class="region">
                             @if ($country->region == null)
                                 @if(!($type == null))
-                                    <a href="/educations?type={{ $type }}&country={{ $country->id }}">{{ $country->city }}</a>
+                                    <a href="/{{ app()->getLocale() }}/educations?type={{ $type }}&country={{ $country->id }}">{{ $country->city }}</a>
                                 @else
-                                    <a href="/educations?country={{ $country->id }}">{{ $country->city }}</a>
+                                    <a href="/{{ app()->getLocale() }}/educations?country={{ $country->id }}">{{ $country->city }}</a>
                                 @endif
                             @else
                                 <a href="#">{{ $country->region }}</a>
@@ -56,15 +62,15 @@
                     <div class="col-md-6">
                         <ul class="educations-header-nav">
                             @if($ctry == null)
-                            <li><a href="/educations">Все</a></li>
-                            <li><a href="/educations?type=1">Университет</a></li>
-                            <li><a href="/educations?type=2">Колледж</a></li>
-                            <li><a href="/educations?type=3">Курс</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations">Все</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations?type=1">Университет</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations?type=2">Колледж</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations?type=3">Курс</a></li>
                             @else
-                            <li><a href="/educations?country={{ $ctry->id }}">Все</a></li>
-                            <li><a href="/educations?type=1&country={{ $ctry->id }}">Университет</a></li>
-                            <li><a href="/educations?type=2&country={{ $ctry->id }}">Колледж</a></li>
-                            <li><a href="/educations?type=3&country={{ $ctry->id }}">Курс</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations?country={{ $ctry->id }}">Все</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations?type=1&country={{ $ctry->id }}">Университет</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations?type=2&country={{ $ctry->id }}">Колледж</a></li>
+                            <li><a href="/{{ app()->getLocale() }}/educations?type=3&country={{ $ctry->id }}">Курс</a></li>
                             @endif
                         </ul>
                     </div>
@@ -75,9 +81,9 @@
                     <div class="row">
                         @foreach ($universities as $university)
                         <div class="col-md-3">
-                            <a href="#" class="university-title">
-                                <div class="university-title-img">
-                                    <img src="{{ $university->getLogo() }}" alt="" class="img-responsive">
+                            <a href="/{{ app()->getLocale() }}/educations/institution/{{ $university->id }}" class="university-title">
+                                <div class="university-title-img" style="background-image: url({{ $university->getLogo() }})">
+                                    {{-- <img src="{{ $university->getLogo() }}" alt="" class="img-responsive"> --}}
                                 </div>
                                 <p>{{ $university->name }}</p>
                             </a>
@@ -85,6 +91,7 @@
                         @endforeach
                     </div>
                 </div>
+                {{ $universities->links() }}
             </div>
         </div>
     </div>

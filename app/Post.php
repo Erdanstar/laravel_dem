@@ -6,6 +6,7 @@ use Carbon\Carbon;
 use \Storage;
 use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
+use App\Language;
 
 class Post extends Model
 {
@@ -78,6 +79,10 @@ class Post extends Model
 
     }
 
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'lang_id');
+    }
 
 
 }

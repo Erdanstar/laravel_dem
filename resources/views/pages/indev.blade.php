@@ -25,7 +25,7 @@
             Введется разработка страниц...
         </div>
         <div class="indev-back">
-            <a href="{{ route('home') }}">Вернутся на главную страницу</a>
+            <a href="/{{ app()->getLocale() }}">Вернутся на главную страницу</a>
         </div>
         <div class="indev-bey"><a href="https://bey.kz/">ТОО "Bey Information Technology"</a></div>
     </div>

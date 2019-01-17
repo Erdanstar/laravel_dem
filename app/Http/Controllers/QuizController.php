@@ -2,108 +2,120 @@
 
 namespace App\Http\Controllers;
 
-use App\Profession;
-use Illuminate\Http\Request;
-use App\Quiz;
-use App\QuizQuestion;
-use App\QuizResult;
+use App\Language;
 use App\Orentation;
-use App\QuizQuestionOption;
+use App\Profession;
+use App\Quiz;
 use App\QuizCorrectOption;
+use App\QuizQuestion;
+use App\QuizQuestionOption;
+use App\QuizResult;
 use App\SessionResult;
-use Session;
+use App\ResultProfession;
 use Auth;
+use Illuminate\Http\Request;
+use Session;
 
 class QuizController extends Controller
 {
-    public function showTest($slug, $question_id)
+    public function showTest($local, $slug, $question_id)
     {
-      $topic = Quiz::where('slug', '=', $slug)->first();
-      // may needs to be refactored, may check sql queries
-      $question = QuizQuestion::getByTopicAndQuestionNumber($slug, $question_id);
-      $next = QuizQuestion::nextQuestionLink($slug, $question_id);
-      $question->options = QuizQuestionOption::where('question_id', $question->id)->inRandomOrder()->get();
-      $options = $question->options;
-      return view('quiz.show')->with([
-          'questionNumber' => $question_id,
-          'quiz'           => $topic,
-          'question'       => $question,
-          'options'        => $options,
-          'next'           => $next
-      ]);
+        $language = Language::where('code', $local)->first();
+        $lgs = Language::all();
+        $topic = Quiz::where('slug', '=', $slug)->where('lang_id', $language->id)->first();
+        $question = QuizQuestion::getByTopicAndQuestionNumber($slug, $question_id, $language->id);
+        $next = QuizQuestion::nextQuestionLink($slug, $question_id, $local, $language->id);
+        $question->options = QuizQuestionOption::where('question_id', $question->id)->where('lang_id', $language->id)->inRandomOrder()->get();
+        $options = $question->options;
+        return view('quiz.show')->with([
+            'questionNumber' => $question_id,
+            'quiz' => $topic,
+            'question' => $question,
+            'options' => $options,
+            'next' => $next,
+            'lg' => $language,
+            'lgs' => $lgs,
+            'curl' => null,
+        ]);
 
     }
 
-    public function postQuestion(Request $request)
+    public function postQuestion($local, Request $request)
     {
-      $oldResult = $request->session()->has('results') ? $request->session()->get('results') : null;
-      $correct = (int)$request['correct'];
-      $quiz_id = (int)$request['quiz_id'];
-      $question_id = (int)$request['question_id'];
-      $result = [
-        'correct' => $correct,
-        'quiz_id' => $quiz_id,
-        'question_id' => $question_id
-      ];
-      $sessionResult = new SessionResult($oldResult);
-      $sessionResult->add($result, $request['question_id']);
+        $language = Language::where('code', $local)->first();
+        $oldResult = $request->session()->has('results') ? $request->session()->get('results') : null;
+        $correct = (int) $request['correct'];
+        $quiz_id = (int) $request['quiz_id'];
+        $question_id = (int) $request['question_id'];
+        $result = [
+					'correct' => $correct,
+					'quiz_id' => $quiz_id,
+					'question_id' => $question_id,
+					'lang_id' => $language->id
+        ];
+        $sessionResult = new SessionResult($oldResult);
+        $sessionResult->add($result, $request['question_id']);
 
-      $request->session()->put('results', $sessionResult);
-      $questions = QuizQuestion::where('quiz_id', '=', $request['quiz_id'])->get();
-      return redirect($request['nextUrl']);
+        $request->session()->put('results', $sessionResult);
+        $questions = QuizQuestion::where('quiz_id', '=', $request['quiz_id'])->where('lang_id', $language->id)->get();
+        return redirect($request['nextUrl']);
     }
 
-    public function showProfessions()
+    public function showProfessions($local)
     {
-        if(!Session::has('results')) {
-            return view('quiz.result');
+				app()->setLocale($local);
+        if (!Session::has('results')) {
+            return redirect('/' . $local . '/quiz');
         }
-
-
         $oldResult = Session::get('results');
-        $result = new SessionResult($oldResult);
-        $orentations = Orentation::where('quiz_id', '=', $result->results['1']['quiz_id'])->get();
-        $questions = QuizQuestion::where('quiz_id', '=', $result->results['1']['quiz_id'])->get();
+				$result = new SessionResult($oldResult);
+				$language = Language::where('code', $local)->first();
+				$allQuestions = QuizQuestion::all()->where('lang_id', $language->id);
+        $orentations = Orentation::all()->where('quiz_id', '=', $result->results[0]['quiz_id'])->where('lang_id', $language->id);
+        $questions = QuizQuestion::all()->where('quiz_id', '=', $result->results[0]['quiz_id'])->where('lang_id', $language->id);
         foreach ($orentations as $orn) {
             $c = 1;
-            $correctOptions = QuizCorrectOption::where('orentation_id', '=', $orn->id)->get();
-            $questions = QuizQuestion::where('quiz_id', '=', $result->results['1']['quiz_id'])->get();
+						$correctOptions = QuizCorrectOption::all()->where('orentation_id', '=', $orn->id)->where('lang_id', $language->id);
             foreach ($result->results as $res) {
                 foreach ($correctOptions as $cop) {
-                    if($cop->orentation->id == $orn->id && $cop->question->id == $res['question_id']){
-                        if($cop->correct == $res['correct']){
+                    if ($cop->orentation->id == $orn->id && $cop->question->id == $res['question_id']) {
+                        if ($cop->correct == $res['correct']) {
                             $ores[$orn->id] = [
                                 'count' => $c++,
-                                'oren_id' => $orn->id
+                                'oren_id' => $orn->id,
                             ];
                         } else {
                             $ores[$orn->id] = [
-                                'count' => $c-1,
-                                'oren_id' => $orn->id
+                                'count' => $c - 1,
+                                'oren_id' => $orn->id,
                             ];
                         }
                     }
                 }
             }
-        }
+				}
         foreach ($ores as $ore) {
-            $d = ($ore['count']/$questions->count())*100;
+            $d = ($ore['count'] / $questions->count()) * 100;
             $os = Orentation::where('id', '=', $ore['oren_id'])->get();
             foreach ($os as $o) {
                 $counts[] = [
                     'p' => round($d),
                     'n' => $o->title,
-                    'id' => $o->id
+                    'id' => $o->id,
                 ];
             }
-        }
-        rsort($counts);
-
-        $orentation = Orentation::where('id', '=', $counts[0]['id'])->first();
-        $professions = Profession::where('orentation_id', '=', $orentation->id)->get();
-        return view('quiz.choose-profession')->with([
-            'orentation' => $orentation,
-            'professions' => $professions
+				}
+				
+				rsort($counts);
+				$counts[0]['p'] = $counts[0]['p'] * 3.33;
+				
+				$curl = 'quiz/result';
+				$professions = ResultProfession::all()->where('orentation_id', $counts[0]['id'])->where('lang_id', $language->id);
+        return view('quiz.result')->with([
+						'counts' => $counts,
+						'lg' => $language,
+						'curl' => $curl,
+						'professions' => $professions
         ]);
     }
 
@@ -113,10 +125,11 @@ class QuizController extends Controller
             'user_id' => Auth::user()->id,
             'orentation_id' => $request->orentation,
             'quiz_id' => $request->quiz,
-            'profession_id' => $request->profession
+						'profession_id' => $request->profession,
+						'lang_id' => $request->language
         ]);
         Session::flush();
         Session::regenerate();
-        return redirect()->route('quiz')->with('status', 'Added');
+        return redirect(app()->getLocale().'/quiz')->with('status', 'Added');
     }
 }

@@ -2,7 +2,7 @@
     <ul class="profile-main-top-nav">
         <li class="profile-main-top-nav-item">
             <img src="{{ asset('img/profile-user.svg') }}" alt="">
-            <a href="{{ route('profile') }}">Мой профиль</a>
+            <a href="/{{ app()->getLocale() }}/profile">Мой профиль</a>
         </li>
         <li class="profile-main-top-nav-item">
             <img src="{{ asset('img/profile-resume.svg') }}" alt="">
@@ -10,7 +10,7 @@
         </li>
         <li class="profile-main-top-nav-item">
             <img src="{{ asset('img/profile-quiz.svg') }}" alt="">
-            <a href="{{ route('profile.quiz') }}" class="text-center">Мои результаты тестов</a>
+            <a href="/{{ app()->getLocale() }}/profile/quiz" class="text-center">Мои результаты тестов</a>
         </li>
         <li class="profile-main-top-nav-item">
             <img src="{{ asset('img/profile-message.svg') }}" alt="">
@@ -22,11 +22,11 @@
         </li>
         <li class="profile-main-top-nav-item">
             <img src="{{ asset('img/profile-logout.svg') }}" alt="">
-            <a href="{{ route('logout') }}" class="text-center" onclick="event.preventDefault();
+            <a href="/{{ app()->getLocale() }}/logout" class="text-center" onclick="event.preventDefault();
          document.getElementById('logout-form').submit();">
                 {{ __('Выйти') }}
             </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+            <form id="logout-form" action="/{{ app()->getLocale() }}/logout" method="POST" style="display: none;">
                 @csrf
             </form>
         </li>

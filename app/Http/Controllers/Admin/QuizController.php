@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\QuizQuestion;
 use App\Status;
 use App\Quiz;
+use App\Language;
 
 class QuizController extends Controller
 {
@@ -15,10 +16,12 @@ class QuizController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($local)
     {
-      $quizzes = Quiz::all();
-      return view('admin.quiz.index', compact('quizzes'));
+        app()->setLocale($local);
+        $language = Language::where('code', $local)->first();
+        $quizzes = Quiz::all()->where('lang_id', $language->id);
+        return view('admin.quiz.index', compact('quizzes'));
     }
 
     /**

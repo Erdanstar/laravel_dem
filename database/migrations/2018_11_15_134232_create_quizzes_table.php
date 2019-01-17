@@ -19,6 +19,7 @@ class CreateQuizzesTable extends Migration
           $table->text('description');
           $table->string('slug');
           $table->string('image');
+          $table->integer('lang_id');
           $table->timestamps();
         });
     }

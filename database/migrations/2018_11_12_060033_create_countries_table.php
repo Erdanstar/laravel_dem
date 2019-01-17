@@ -17,6 +17,7 @@ class CreateCountriesTable extends Migration
             $table->increments('id');
             $table->string('region')->nullable();
             $table->string('city');
+            $table->integer('lang_id');
             $table->timestamps();
         });
     }

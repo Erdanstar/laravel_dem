@@ -13,13 +13,13 @@
         </div>
         <ul class="profile-sidebar-menu mt-2">
             <li class="profile-sidebar-menu-item">
-                <a href="{{ route('profile') }}">Мой профиль</a>
+                <a href="/{{ app()->getLocale() }}/profile">Мой профиль</a>
             </li>
             <li class="profile-sidebar-menu-item">
                 <a href="#">Мои резюме</a>
             </li>
             <li class="profile-sidebar-menu-item">
-                <a href="{{ route('profile.quiz') }}">Мои результаты тестов</a>
+                <a href="/{{ app()->getLocale() }}/profile/quiz">Мои результаты тестов</a>
             </li>
             <li class="profile-sidebar-menu-item">
                 <a href="#">Мои сообщения</a>
@@ -28,11 +28,11 @@
                 <a href="#">Избранное</a>
             </li>
             <li class="profile-sidebar-menu-item">
-                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                <a href="/{{ app()->getLocale() }}/logout" onclick="event.preventDefault();
              document.getElementById('logout-form').submit();">
                     {{ __('Выйти') }}
                 </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                <form id="logout-form" action="/{{ app()->getLocale() }}/logout" method="POST" style="display: none;">
                     @csrf
                 </form>
             </li>

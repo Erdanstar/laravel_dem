@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\QuizQuestionOption;
 use App\QuizQuestion;
 use App\Quiz;
+use App\Language;
 
 class QuizQuestionController extends Controller
 {

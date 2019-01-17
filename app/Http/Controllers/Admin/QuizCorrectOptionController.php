@@ -8,6 +8,7 @@ use App\Quiz;
 use App\Orentation;
 use App\QuizQuestion;
 use App\QuizCorrectOption;
+use App\Language;
 
 class QuizCorrectOptionController extends Controller
 {
@@ -16,12 +17,14 @@ class QuizCorrectOptionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($local)
     {
-      $corrects = QuizCorrectOption::all();
-      return view('admin.quiz.correctOptions.index', compact(
-        'corrects'
-      ));
+        app()->setLocale($local);
+        $language = Language::where('code', $local)->first();
+        $corrects = QuizCorrectOption::all()->where('lang_id', $language->id);
+        return view('admin.quiz.correctOptions.index', compact(
+            'corrects'
+        ));
     }
 
     /**

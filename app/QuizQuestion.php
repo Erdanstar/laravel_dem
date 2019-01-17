@@ -23,37 +23,38 @@ class QuizQuestion extends Model
 
 
 
-    public static function getByTopicAndQuestionNumber($slug, $questionNumber)
+    public static function getByTopicAndQuestionNumber($slug, $questionNumber, $lang_id)
     {
-      $quiz = Quiz::where('slug', '=', $slug)->first();
-      return QuizQuestion::where('quiz_id', '=', $quiz->id)->where('id', '=', $questionNumber)->first();
+			$quiz = Quiz::where('slug', '=', $slug)->where('lang_id', $lang_id)->first();
+      return QuizQuestion::where('quiz_id', $quiz->id)->where('id', $questionNumber)->where('lang_id', $lang_id)->first();
     }
 
-    public static function nextQuestionLink($slug, $questionNumber) {
-      $quiz = Quiz::where('slug', '=', $slug)->first();
-      $nextquestion = QuizQuestion::orderBy('id')->where('id', '>', $questionNumber)->first();
-        $nextQuestionLink = [];
-        if ($quiz->questions->count() != $questionNumber) {
-            $nextQuestionLink['url']   = '/quiz/' . $quiz->slug . '/' . $nextquestion->id;
-            $nextQuestionLink['text']  = 'Следующий вопрос';
-            $nextQuestionLink['class'] = 'btn-default';
-        } else {
-            $nextQuestionLink['url']   = '/quiz/result';
-            $nextQuestionLink['text']  = 'Завершить';
-            $nextQuestionLink['class'] = 'btn-primary';
-        }
-        return $nextQuestionLink;
-    }
+		public static function nextQuestionLink($slug, $questionNumber, $local, $lang_id) {
+			$quiz = Quiz::where('slug', $slug)->where('lang_id', $lang_id)->first();
+			$nextquestion = QuizQuestion::orderBy('id')->where('id', '>', $questionNumber)->where('lang_id', $lang_id)->first();
+			$allQuestions = QuizQuestion::all()->where('quiz_id', $quiz->id)->where('lang_id', $lang_id);
+			$nextQuestionLink = [];
+			if ($nextquestion != null) {
+					$nextQuestionLink['url']   = '/'. $local .'/quiz/' . $quiz->slug . '/' . $nextquestion->id;
+					$nextQuestionLink['text']  = 'Следующий вопрос';
+					$nextQuestionLink['class'] = 'btn-primary';
+			} else {
+					$nextQuestionLink['url']   = '/'.$local.'/quiz/result';
+					$nextQuestionLink['text']  = 'Следущий вопрос';
+					$nextQuestionLink['class'] = 'btn-primary';
+			}
+			return $nextQuestionLink;
+		}
 
     public function options()
     {
-      return $this->hasMany(QuizQuestionOption::class);
+			return $this->hasMany(QuizQuestionOption::class);
     }
 
-    public function correct()
-    {
-      return $this->hasMany(QuizCorrectOption::class);
-    }
+		public function correct()
+		{
+			return $this->hasMany(QuizCorrectOption::class);
+		}
 
     public static function add($fields)
     {
@@ -68,6 +69,11 @@ class QuizQuestion extends Model
     {
       $this->fill($fields);
       $this->save();
+    }
+
+    public function language()
+    {
+        return $this->belongsTo(Language::class, 'lang_id');
     }
 
     public function remove()

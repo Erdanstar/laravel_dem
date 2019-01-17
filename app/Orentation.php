@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use App\Profession;
 use App\QuizResult;
+use App\QuizCorrectOption;
+use App\ResultProfession;
 
 class Orentation extends Model
 {
@@ -17,21 +19,26 @@ class Orentation extends Model
 
   public function professions()
   {
-    $this->hasMany(Profession::class);
+    return $this->hasMany(Profession::class);
   }
   public function quizResults()
   {
-    $this->hasMany(QuizResult::class);
+    return $this->hasMany(QuizResult::class);
   }
 
   public function correct()
   {
-    $options = $this->hasMany(QuizCorrectOption::class);
+    return $this->hasMany(QuizCorrectOption::class);
+  }
+
+  public function resultProfessions()
+  {
+    return $this->hasMany(ResultProfession::class);
   }
 
   public function setQuizID($id)
   {
-    $this->attributes['quiz_id'] = $id ? $id : null;
+    return $this->attributes['quiz_id'] = $id ? $id : null;
   }
 
 
@@ -53,5 +60,10 @@ class Orentation extends Model
   public function remove()
   {
     $this->delete();
+  }
+
+  public function language()
+  {
+      return $this->belongsTo(Language::class, 'lang_id');
   }
 }

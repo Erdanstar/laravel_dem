@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\User;
 use App\Status;
 use App\Country;
+use App\Language;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -43,13 +44,16 @@ class RegisterController extends Controller
     }
 
 
-    public function showRegistrationForm()
+    public function showRegistrationForm($local)
     {
-        $statuses = Status::all();
-        $countries = Country::all();
+				$language = Language::where('code', $local)->first();
+        $statuses = Status::all()->where('lang_id', $language->id);
+				$countries = Country::all();
+				$curl = 'register';
         return view('auth.register', [
             'statuses'  => $statuses,
-            'countries' => $countries
+						'countries' => $countries,
+						'curl' => $curl
         ]);
     }
 

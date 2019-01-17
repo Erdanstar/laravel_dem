@@ -8,7 +8,7 @@
                     <div class="slider">
                         <div class="owl-carousel top-slider owl-theme">
                             <div class="item" style="background-image: url('img/slider-1.jpg'); position: relative;">
-                                <a href="/indev">Выбор будущей професии</a>
+                                <a href="/{{ app()->getLocale() }}/indev">Выбор будущей професии</a>
                                 <p>- это серьезный и отвественный шаг в жизни каждого человека,
                                     требующий подготовки и знаний, времени на раздумья,
                                     <br>и не терпящий легкомысленности.
@@ -167,7 +167,7 @@
                                             свое жизненное предназначение, так и взрослым людям, которые недовольны
                                             своей нынешней профессией.
                                         </p>
-                                        <a href="{{route('quiz')}}" class="btn btn-outline-white">Пройти тест</a>
+                                        <a href="/{{ app()->getLocale() }}/quiz" class="btn btn-outline-white">Пройти тест</a>
                                     </div>
                                 </div>
                             </div>
@@ -320,7 +320,7 @@
                             </div>
                             <div class="tab-pane fade" id="sforms" role="tabpanel" aria-labelledby="sforms-tab">
                                 <div class="questions-form">
-                                    <form method="POST" action="/profile">
+                                    <form method="POST" action="/{{ app()->getLocale() }}/profile">
                                         @csrf
                                         @if(Auth::check())
                                             <div class="form-group auth">
@@ -481,14 +481,14 @@
                                 <h1>Личный кабинет</h1>
                             </div>
                             @if(!Auth::check())
-                                <form action="{{ route('login') }}" method="post">
+                                <form action="#" method="post">
                                     @csrf
                                     <div class="form-group">
                                         <input type="email" name="email" class="form-control" placeholder="e-mail">
                                         <input type="password" name="password" class="form-control" placeholder="пароль">
                                         <div class="buttons">
                                             <button type="submit" class="btn btn-primary">Войти</button>
-                                            <a href="{{ route('register') }}" type="submit" class="btn btn-outline">Регистрация</a>
+                                            <a href="/{{ app()->getLocale() }}/register" type="submit" class="btn btn-outline">Регистрация</a>
                                         </div>
                                         <small id="emailHelp" class="form-text text-muted">
                                             <a href="#" class="remember-password">пароль?</a>
@@ -504,7 +504,7 @@
                                         <p>{{ Auth::user()->surname }} {{ Auth::user()->name }}</p>
                                     </div>
                                     <div class="main-footer-user-link">
-                                        <a href="{{ route('profile') }}">Перейти в кабинет</a>
+                                        <a href="/{{ app()->getLocale() }}/profile">Перейти в кабинет</a>
                                     </div>
                                 </div>
                             @endif

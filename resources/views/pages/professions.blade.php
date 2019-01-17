@@ -22,31 +22,39 @@
                             </div>
                         </div>
                         <div class="col-md-4">
-                            <div class="oyu">
-                                <img src="" alt="">
-                            </div>
-                            <div class="professions-header-link">
-                                <a href="#">Классификатор специальностей 
-                                        высшего и послевузовского образования 
-                                        Республики Казахстан</a>
+                            <div class="professions-header-oyu-link">
+                                <div class="oyu">
+                                    <img src="{{ asset('img/oyu.png') }}" alt="">
+                                </div>
+                                <div class="professions-header-link">
+                                    <a href="{{ asset('documents/klassificator.pdf') }}">
+                                        <p>Классификатор специальностей
+                                            высшего и послевузовского образования
+                                            Республики Казахстан</p>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-12 professions-list">
+            <div class="col-md-12 professions-list d-flex flex-column align-items-center">
                 <div class="professions-list-items">
-                    <div class="row">
-                        @foreach ($profession_categories as $category)
-                            <a href="/professions/item/{{ $category->id }}" class="professions-list-items-item col-md-3">
-                                <div class="professions-list-items-item-img">
-                                    <img src="{{ $category->getImage() }}" alt="" class="img-responsive">
-                                </div>
-                                {{ $category->title }}
-                            </a>
-                        @endforeach
-                    </div>
+                    <ul class="nav">
+                        <div class="row">
+                            @foreach ($profession_categories as $category)
+                            <li class="professions-list-items-item col-md-3">
+                                <a data-toggle="tab" href="#category{{ $category->id }}">
+                                    <div class="img" style="background-image: url({{ $category->getImage() }})">
+                                    </div>
+                                    {{ $category->title }}
+                                </a>
+                            </li>
+                            @endforeach
+                        </div>
+                    </ul>
                 </div>
+                {{ $profession_categories->links() }}
             </div>
         </div>
     </div>

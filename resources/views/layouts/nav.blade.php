@@ -2,14 +2,14 @@
     <div class="container">
         <div class="row">
             <div class="col-md-2 d-flex align-items-center">
-                <a href="/" class="logo"><img src="{{ asset('img/logo.png') }}" alt="Logo" /></a>
+                <a href="/{{ app()->getLocale() }}" class="logo"><img src="{{ asset('img/logo.png') }}" alt="Logo" /></a>
             </div>
             <div class="col-md-6">
                 <ul class="main-nav d-flex align-items-center">
-                    <li><a href="{{ route('quiz') }}">Профессиональная ориентация</a></li>
-                    <li><a href="/indev">Работа</a></li>
-                    <li><a href="{{ route('professions') }}">Специальность</a></li>
-                    <li><a href="/educations">Образование</a></li>
+                    <li><a href="/{{ app()->getLocale() }}/quiz">{{ __('home.proforientation') }}</a></li>
+                    <li><a href="/{{ app()->getLocale() }}/indev">{{ __('home.jobs') }}</a></li>
+                    <li><a href="/{{ app()->getLocale() }}/professions">{{ __('home.specalties') }}</a></li>
+                    <li><a href="/{{ app()->getLocale() }}/educations">{{ __('home.educations') }}</a></li>
                 </ul>
             </div>
             <div class="col-md-3 d-flex justify-content-end">
@@ -30,20 +30,30 @@
                                     </div>
                                     <div class="modal-body">
                                       @foreach ($countries as $country)
-                                        <a href="/indev" class="nav-link">{{$country->region}}</a>
+                                        <a href="/{{ app()->getLocale() }}/indev" class="nav-link">{{$country->region}}</a>
                                       @endforeach
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </li>
-                    <li><a href="{{route('login')}}"><img src="{{ asset('img/user-icon.png') }}" alt="User" /></a></li>
+                    <li><a href="/{{ app()->getLocale() }}/login"><img src="{{ asset('img/user-icon.png') }}" alt="User" /></a></li>
                 </ul>
-            </div>
+						</div>
             <div class="col-md-1">
                 <div class="lang text-right d-flex flex-column">
-                    <a href="/indev" class="lang-link">Қазақша</a>
-                    <a href="/indev" class="lang-link">Русский</a>
+										<div class="dropdown">
+											<a href="#" class="dropdown-toggle" id="langDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{ __('home.langTitle') }}</a>
+											<div class="dropdown-menu" aria-labelledby="langDropdown">
+												@foreach($lgs as $lang)
+													@if($curl == null)
+													<a class="dropdown-item {{ app()->getLocale() == $lang->code ? 'disabled' : ''}}" href="/{{ $lang->code }}">{{ $lang->title }}</a>
+													@else
+													<a class="dropdown-item {{ app()->getLocale() == $lang->code ? 'disabled' : ''}}" href="/{{ $lang->code }}/{{ $curl }}">{{ $lang->title }}</a>
+													@endif
+												@endforeach
+											</div>
+										</div>
                 </div>
             </div>
         </div>

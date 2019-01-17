@@ -6,7 +6,7 @@
         <div class="col-md-4">
             <div class="form-wrapper">
 
-                <form method="POST" action="{{ route('login') }}">
+                <form method="POST" action="/{{ app()->getLocale() }}/login">
                     @csrf
                     <h2>Личный кабинет</h2>
                     <div class="form-group">
@@ -51,11 +51,11 @@
                     <div class="form-group buttons">
                         <button id="sign-in" class="btn btn-primary" type="submit">Войти</button>
                         <p>Новый пользователь? 
-                            <a href="{{ route('register') }}" class="">Регистрация</a>
+                            <a href="/{{ app()->getLocale() }}/register" class="">Регистрация</a>
                         </p>
                     </div>
                     <small id="emailHelp" class="form-text text-muted">
-                        <a class="btn btn-link" href="{{ route('password.request') }}">
+                        <a class="btn btn-link" href="/{{ app()->getLocale() }}/password/reset">
                             Забыли пароль?
                         </a>
                     </small>

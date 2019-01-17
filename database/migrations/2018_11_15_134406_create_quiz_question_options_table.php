@@ -17,6 +17,7 @@ class CreateQuizQuestionOptionsTable extends Migration
           $table->increments('id');
           $table->text('option_text');
           $table->integer('question_id')->unsigned();
+          $table->integer('lang_id');
           $table->timestamps();
 
           $table->foreign('question_id')->references('id')->on('quiz_questions')->onDelete('cascade');

@@ -196,6 +196,10 @@
   font-size: 11px;
 }
 
+.main-footer-form form .btn-primary {
+  margin-right: 14px;
+}
+
 .main-footer-form form .btn-outline {
   padding-right: 50px;
   padding-left: 50px;
@@ -264,7 +268,7 @@
 }
 
 .slider .item a:hover {
-  background-color: #b31c30;
+  background-color: #312728;
 }
 
 .slider .item p {
@@ -805,6 +809,7 @@
   background-color: #ffffff;
   padding: 40px 30px;
   width: 100%;
+  margin-top: 14px;
 }
 
 .form-wrapper form h2 {
@@ -1030,8 +1035,80 @@
 .quiz-card-description {
   color: #707070;
   font-size: 13px;
+  height: 250px;
   text-align: center;
   margin-bottom: 20px;
+}
+
+.quiz-results {
+  margin-top: 24px;
+}
+
+.quiz-results hr {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.quiz-results form {
+  margin-top: 24px;
+}
+
+.quiz-results .result_profession {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 14px;
+  text-decoration: none;
+  font-size: 13px;
+  color: #707070;
+  text-decoration: none;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+}
+
+.quiz-results .result_profession:hover {
+  text-decoration: none;
+  color: #707070;
+  cursor: pointer;
+}
+
+.quiz-results .result_profession:hover .img {
+  border: 3px solid #3490dc;
+}
+
+.quiz-results .result_profession:hover p {
+  text-decoration: underline;
+}
+
+.quiz-results .result_profession .img {
+  margin-bottom: 10px;
+  width: 137px;
+  height: 137px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.quiz-results .title {
+  margin-top: 25px;
+  background-color: #0c3b4a;
+  width: 100%;
+  padding: 21px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.quiz-results .title h1 {
+  font-size: 25px;
+  color: #ffffff;
+  margin-bottom: 0;
 }
 
 .profile-top-img {
@@ -1145,8 +1222,28 @@
 .educations-top {
   height: 155px;
   background-size: cover;
-  background-position: center;
+  background-position: center 300px;
   margin-bottom: 14px;
+  position: relative;
+}
+
+.educations-top a {
+  width: 250px;
+  position: absolute;
+  top: 52px;
+  right: 36px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.educations-top a p {
+  color: #ffffff;
+  font-size: 13px;
+  line-height: 16px;
+}
+
+.educations-top a p:hover {
+  color: #ffffff;
 }
 
 .educations-header {
@@ -1156,6 +1253,11 @@
 
 .educations-header-title h1 {
   font-size: 25px;
+  color: #ffffff;
+}
+
+.educations-header-title h3 {
+  font-size: 13px;
   color: #ffffff;
 }
 
@@ -1189,6 +1291,40 @@
   background-color: #ffffff;
 }
 
+.educations-content-item {
+  position: relative;
+}
+
+.educations-content-item .university {
+  font-size: 13px;
+  color: #707070;
+  width: 216px;
+}
+
+.educations-content-item .university-img {
+  margin-bottom: 24px;
+  width: 100%;
+  height: 216px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.educations-content-item .university .name {
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.educations-content-item .university .phone,
+.educations-content-item .university .site,
+.educations-content-item .university .address {
+  margin-bottom: 16px;
+}
+
 .educations-content-universities {
   display: flex;
   justify-content: space-between;
@@ -1204,12 +1340,16 @@
 }
 
 .educations-content .university-title-img {
+  margin-bottom: 24px;
   width: 100px;
   height: 100px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   padding: 5px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
 }
 
 .educations-content .university-title p {
@@ -1233,7 +1373,7 @@
 }
 
 .regions-sidebar-region a {
-  font-size: 17px;
+  font-size: 13px;
   color: #707070;
 }
 
@@ -1243,12 +1383,12 @@
 }
 
 .regions-sidebar-region .region a {
-  font-size: 17px;
+  font-size: 13px;
   color: #707070;
 }
 
 .regions-sidebar-region .region p {
-  font-size: 17px;
+  font-size: 13px;
   color: #707070;
   margin-bottom: 0;
 }
@@ -1266,12 +1406,26 @@
 
 .professions-header {
   background-color: #0c3b4a;
-  padding: 8px 13px 11px 22px;
+  padding: 21px 13px 21px 22px;
 }
 
 .professions-header-title h1 {
   font-size: 25px;
   color: #ffffff;
+}
+
+.professions-header-oyu-link {
+  display: flex;
+  align-items: center;
+}
+
+.professions-header-oyu-link .oyu {
+  margin-right: 14px;
+}
+
+.professions-header-oyu-link .oyu img {
+  height: 48px;
+  width: 19px;
 }
 
 .professions-header-link a {
@@ -1280,27 +1434,50 @@
   font-size: 13px;
 }
 
+.professions-header-link a p {
+  line-height: 16px;
+  margin-bottom: 0;
+}
+
 .professions-header-link a:hover {
   color: #ffffff;
 }
 
-.professions-list-items-item {
+.professions-list {
+  padding: 87px 78px 28px !important;
+  background-color: #ffffff;
+  margin-top: 14px;
+}
+
+.professions-list-items-item a {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-bottom: 30px;
   text-decoration: none;
+  font-size: 13px;
+  color: #707070;
+  text-decoration: none;
+  margin-right: 30px;
 }
 
-.professions-list-items-item-img {
-  width: 100px;
-  height: 100px;
+.professions-list-items-item a:hover {
+  text-decoration: none;
+  color: #707070;
+}
+
+.professions-list-items-item a .img {
+  margin-bottom: 24px;
+  width: 137px;
+  height: 137px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   padding: 5px;
   border-radius: 50%;
+  background-size: cover;
+  background-position: center;
 }
 
 /*!

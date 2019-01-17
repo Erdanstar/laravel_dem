@@ -19,10 +19,10 @@ class CreateQuizCorrectOptionsTable extends Migration
           $table->integer('quiz_id')->unsigned();
           $table->integer('orentation_id')->unsigned();
           $table->integer('question_id')->unsigned();
+          $table->integer('lang_id');
           $table->timestamps();
 
           $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
-          $table->foreign('orentation_id')->references('id')->on('orentations')->onDelete('cascade');
           $table->foreign('question_id')->references('id')->on('quiz_questions')->onDelete('cascade');
         });
     }

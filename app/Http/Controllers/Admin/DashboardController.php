@@ -8,8 +8,9 @@ use App\Http\Controllers\Controller;
 class DashboardController extends Controller
 {
     //Dashboard
-    public function dashboard()
+    public function dashboard($local)
     {
-      return view('admin.dashboard');
+      app()->setLocale($local);
+      return view('admin.dashboard', ['local'=>$local]);
     }
 }

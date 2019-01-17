@@ -124,19 +124,20 @@
             color: $description;
             font-size: 16px;
             font-weight: 400;
-            &:hover{
-              color: $description;
+
+            &:hover {
+                color: $description;
             }
         }
     }
 
-    &-psicholog{
-      height: 230px;
-      margin-top: 33px;
-      background-size: cover;
-      background-position: center;
-      position: relative;
-      
+    &-psicholog {
+        height: 230px;
+        margin-top: 33px;
+        background-size: cover;
+        background-position: center;
+        position: relative;
+
     }
 
     &-header {
@@ -192,8 +193,74 @@
         &-description {
             color: $description;
             font-size: 13px;
+            height: 250px;
             text-align: center;
             margin-bottom: 20px;
         }
     }
+
+    
+}
+.quiz-results {
+	margin-top: 24px;
+	hr{
+		margin-top: 5px;
+		margin-bottom: 5px;
+	}
+	form{
+		margin-top: 24px;
+	}
+	.result_profession {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			text-align: center;
+			margin-bottom: 14px;
+			text-decoration: none;
+			font-size: 13px;
+			color: $description;
+			text-decoration: none;
+			width: 100%;
+			padding: 10px;
+			border: none;
+			background-color: transparent;
+
+			&:hover {
+					text-decoration: none;
+					color: $description;
+					cursor: pointer;
+					.img{
+						border: 3px solid #3490dc;
+					}
+					p{
+						text-decoration: underline;
+					}
+			}
+
+			.img {
+					margin-bottom: 10px;
+					width: 137px;
+					height: 137px;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					padding: 5px;
+					border-radius: 50%;
+					background-size: cover;
+					background-position: center;
+			}
+	}
+	.title{
+		margin-top: 25px;
+		background-color: #0c3b4a;
+		width: 100%;
+		padding: 21px 0;
+		display: flex;
+		justify-content: center;
+		h1{
+			font-size: 25px;
+			color: $white;
+			margin-bottom: 0;
+		}
+	}
 }

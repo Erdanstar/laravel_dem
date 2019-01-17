@@ -17,6 +17,7 @@ class CreateProfessionCategoriesTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->string('image');
+            $table->integer('lang_id');
             $table->timestamps();
         });
     }

@@ -14,9 +14,9 @@
     <!-- Main content -->
     <section class="content">
         {{Form::open([
-    'route'	=> 'quiz.store',
-    'files' => true
-  ])}}
+        'route' => 'quiz.store',
+        'files' => true
+        ])}}
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
@@ -27,13 +27,18 @@
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleInputEmail1">Название</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Название" name="title" value="{{old('title')}}">
+                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Название" name="title"
+                            value="{{old('title')}}">
                     </div>
                     <div class="form-group">
-                      <label for="exampleInputFile">Лицевая картинка</label>
-                      <input type="file" id="exampleInputFile" name="image">
+                        <label for="exampleInputEmail1">Название</label>
+                        <textarea name="description" id="description" id="textarea" class="textarea" cols="30" rows="10"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputFile">Лицевая картинка</label>
+                        <input type="file" id="exampleInputFile" name="image">
 
-                      <p class="help-block">Какое-нибудь уведомление о форматах..</p>
+                        <p class="help-block">Какое-нибудь уведомление о форматах..</p>
                     </div>
                 </div>
             </div>

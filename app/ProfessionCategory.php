@@ -19,6 +19,11 @@ class ProfessionCategory extends Model
   }
   public function professions()
   {
-    $this->hasMany(Profession::class);
+    return $this->hasMany(Profession::class, 'category_id');
+  }
+
+  public function language()
+  {
+      return $this->belongsTo(Language::class, 'lang_id');
   }
 }

@@ -18,12 +18,12 @@ class CreateQuizResultsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->integer('quiz_id')->unsigned();
             $table->integer('orentation_id')->unsigned();
-            $table->integer('profession_id')->unsigned();
+						$table->integer('profession_id')->unsigned();
+						$table->integer('lang_id');
             $table->timestamps();
             
             $table->foreign('quiz_id')->references('id')->on('quizzes')->onDelete('cascade');
             $table->foreign('orentation_id')->references('id')->on('orentations')->onDelete('cascade');
-            $table->foreign('profession_id')->references('id')->on('professions')->onDelete('cascade');
         });
     }
 

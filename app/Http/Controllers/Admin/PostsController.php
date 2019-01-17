@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Http\Controllers\Controller;
+use App\Language;
 
 class PostsController extends Controller
 {
@@ -13,10 +14,12 @@ class PostsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($local)
     {
-      $posts = Post::all();
-      return view('admin.posts.index', ['posts'=>$posts]);
+        app()->setLocale($local);
+        $language = Language::where('code', $local)->first();
+        $posts = Post::all()->where('lang_id', $language->id);
+        return view('admin.posts.index', ['posts'=>$posts, 'local'=>$local]);
     }
 
     /**

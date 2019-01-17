@@ -19,6 +19,7 @@ class CreateProfessionsTable extends Migration
             $table->text('description');
             $table->integer('category_id')->unsigned();
             $table->integer('orentation_id')->unsigned();
+            $table->integer('lang_id');
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('profession_categories')->onDelete('cascade');

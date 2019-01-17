@@ -18,6 +18,6 @@ class SessionResult
     public function add($result, $id)
     {
       $storedResult = $result;
-      $this->results[$id] = $storedResult;
+      $this->results[] = $storedResult;
     }
 }

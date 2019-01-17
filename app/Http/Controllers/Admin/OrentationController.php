@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Quiz;
 use App\Orentation;
+use App\Language;
 
 class OrentationController extends Controller
 {
@@ -14,9 +15,11 @@ class OrentationController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($local)
     {
-      $orentations = Orentation::all();
+      app()->setLocale($local);
+      $language = Language::where('code', $local)->first();
+      $orentations = Orentation::all()->where('lang_id', $language->id);
       return view('admin.quiz.orentations.index', ['orentations'=>$orentations]);
     }
 
